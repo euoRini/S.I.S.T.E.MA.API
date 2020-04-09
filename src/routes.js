@@ -11,6 +11,7 @@ const routes = express.Router();
 
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
+routes.get('/users/:matricula', UserController.credenciais);
 
 routes.get('/admins', AdminsController.index);
 routes.get('/admins/:login', AdminsController.login);

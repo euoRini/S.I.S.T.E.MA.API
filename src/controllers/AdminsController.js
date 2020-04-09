@@ -10,7 +10,9 @@ module.exports = {
   async login(req,res){
     const { login } = req.params;
     const logadm = await Admins.findOne({ where: { login: login } });
-
+    if(!logadm){
+      return res.status(400).json({ error: 'Login de administrador não encontrado em nosso banco de dados! '});
+    }
     return res.json(logadm);
   },
 
