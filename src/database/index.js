@@ -22,8 +22,8 @@ Venda.init(connection);
 Vendedor.init(connection);
 
 Recarga.associate(connection.models);
-/*Venda.associate(connection.models);
-Acesso.associate(connection.models);
+Venda.associate(connection.models);
+/*Acesso.associate(connection.models);
 Pagamento.associate(connection.models);*/
 
 module.exports = connection;

@@ -9,10 +9,9 @@ class Pagamento extends Model {
             sequelize: connection
         })
     }
-    static associate(models)
-    {
-        this.belongsTo(models.Venda, {foreignKey:'id_venda', as: 'venda'});
-    }
+    static associate(models){
+        this.belongsTo(models.Venda, { foreignKey: 'id_venda', as: 'venda'});
+      }
 }
 
 module.exports = Pagamento;
