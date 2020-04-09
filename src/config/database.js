@@ -1,9 +1,9 @@
 module.exports = {
   dialect: 'mysql',
-  host: '194.5.156.1',
-  username: 'u459302695_IFCAdmin',
-  password: 'admin',
-  database: 'u459302695_IFRJCode',
+  host: 'remotemysql.com',
+  username: 'fO570IdCqW',
+  password: 'StZTV2T0wU',
+  database: 'fO570IdCqW',
   define: {
     timestamps: true,
     underscored: true,
