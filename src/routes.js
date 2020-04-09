@@ -13,6 +13,7 @@ routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
 
 routes.get('/admins', AdminsController.index);
+routes.get('/admins/:login', AdminsController.login);
 routes.post('/admins', AdminsController.store);
 
 routes.get('/recargas', RecargaController.index);

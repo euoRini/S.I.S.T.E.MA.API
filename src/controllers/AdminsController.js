@@ -7,6 +7,12 @@ module.exports = {
     return res.json(admins);
   },
 
+  async login(req,res){
+    const logadm = await Admins.findOne(login);
+
+    return res.json(logadm);
+  },
+
   async store(req, res){
     const { nome, login, senha, email } = req.body
 
