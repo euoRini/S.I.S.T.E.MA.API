@@ -8,7 +8,7 @@ module.exports = {
   },
 
   async login(req,res){
-    const logadm = await Admins.findOne(login);
+    const logadm = await Admins.findOne({ where: { title: login } });
 
     return res.json(logadm);
   },
