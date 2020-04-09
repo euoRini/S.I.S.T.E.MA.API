@@ -9,7 +9,7 @@ class Venda extends Model {
     })
     }
     static associate(models){
-        this.belongsTo(models.Vendedors, {foreingKey: 'vendedor_id', as: 'vendedor'});
+        this.belongsTo(models.Vendedor, { foreignKey: 'id_vendedor', as: 'vendedor'});
 //        this.belongsToMany(models.Produto, { foreignKey:'id_venda', through: 'conter', as: 'vendas'})
     }
 }
