@@ -35,7 +35,8 @@ routes.post('/admins/:id_admin/:id_vendedor/acesso', AcessoController.store);
 routes.get('/admins/:id_admin/acesso', AcessoController.admindex);
 routes.get('/vendedor/:id_vendedor/acesso', AcessoController.vendindex);
 
-routes.get('/vendas/:id_venda/produto', PagamentoController.index);
-routes.post('/vendas/:id_venda/produto', PagamentoController.store);
+routes.get('/vendas/:id_venda/produto', ProdutoController.index);
+routes.post('/vendas/:id_venda/produto', ProdutoController.store);
+routes.post('/produto', ProdutoController.newProd);
 
 module.exports = routes;

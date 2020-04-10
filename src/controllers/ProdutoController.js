@@ -8,6 +8,14 @@ module.exports = {
     return res.json(produtos);
   },
 
+  async newProd(req,res){
+    const { nome, preco, estoque, categoria } = req.body
+
+    const produto = await Produto.create({ nome, preco, estoque, categoria });
+
+    return res.json(produto);
+  },
+
   async store(req, res){
     const {id_venda} = req.params;
     const { nome, preco, estoque, categoria } = req.body
