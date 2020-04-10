@@ -31,6 +31,8 @@ routes.post('/vendas/:id_venda/pagamento', PagamentoController.store);
 
 routes.get('/acessos', AcessoController.index);
 routes.post('/admins/:id_admin/:id_vendedor/acesso', AcessoController.store);
+routes.get('/admins/:id_admin/acesso', AcessoController.admindex);
+routes.get('/vendedor/:id_vendedor/acesso', AcessoController.vendindex);
 
 //routes.get('/produtos/:id_produto/venda', RecargaController.index);
 //routes.post('/produtos/:id_produto/venda', RecargaController.store);

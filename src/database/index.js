@@ -23,6 +23,8 @@ Vendedor.init(connection);
 
 Recarga.associate(connection.models);
 Venda.associate(connection.models);
+Vendedor.associate(connection.models);
+Admins.associate(connection.models);
 Acesso.associate(connection.models);
 Pagamento.associate(connection.models);
 
