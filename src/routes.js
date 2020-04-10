@@ -18,7 +18,8 @@ routes.delete('/users/:matricula', UserController.delete);
 routes.get('/admins', AdminsController.index);
 routes.get('/admins/:login', AdminsController.login);
 routes.post('/admins', AdminsController.store);
-routes.delete('/admins/:data', AdminsController.delete);
+routes.delete('/admins/l/:login', AdminsController.delete);
+routes.delete('/admins/e/:email', AdminsController.edelete);
 
 routes.get('/recargas', RecargaController.index);
 routes.post('/users/:id_cartao/recarga', RecargaController.store);
