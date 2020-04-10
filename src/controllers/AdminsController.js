@@ -14,9 +14,9 @@ module.exports = {
     
     if(!admin){
       const admin = await Admins.findOne({ where: { email: login } });
-      if(!admin){
-        return res.status(400).json({ error: 'Login de administrador não encontrado em nosso banco de dados! '});
-      }
+    }
+    if(!admin){
+      return res.status(400).json({ error: 'Login de administrador não encontrado em nosso banco de dados! '});
     }
     await admin.destroy();
     return res.json();
