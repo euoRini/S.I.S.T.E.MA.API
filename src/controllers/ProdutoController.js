@@ -8,6 +8,14 @@ module.exports = {
     return res.json(produtos);
   },
 
+  async prodvend(req, res){
+    const {id_venda} = req.params;
+
+    const venda = await Venda.findByPk(id_venda, { include: {association: 'produtos'}})
+
+    return res.json(venda);
+  },
+
   async newProd(req,res){
     const { nome, preco, estoque, categoria } = req.body
 
