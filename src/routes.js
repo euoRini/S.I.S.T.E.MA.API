@@ -6,6 +6,7 @@ const VendedorController = require ('./controllers/VendedorController');
 const VendaController = require ('./controllers/VendaController');
 const PagamentoController = require ('./controllers/PagamentoController');
 const AcessoController = require ('./controllers/AcessoController');
+const ProdutoController = require ('./controllers/ProdutoController');
 
 const routes = express.Router();
 
@@ -34,8 +35,7 @@ routes.post('/admins/:id_admin/:id_vendedor/acesso', AcessoController.store);
 routes.get('/admins/:id_admin/acesso', AcessoController.admindex);
 routes.get('/vendedor/:id_vendedor/acesso', AcessoController.vendindex);
 
-//routes.get('/produtos/:id_produto/venda', RecargaController.index);
-//routes.post('/produtos/:id_produto/venda', RecargaController.store);
-
+routes.get('/vendas/:id_venda/produto', PagamentoController.index);
+routes.post('/vendas/:id_venda/produto', PagamentoController.store);
 
 module.exports = routes;

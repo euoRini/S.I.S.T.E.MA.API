@@ -14,16 +14,16 @@ module.exports = {
     const { id_admin } = req.params;
     const admin = await  Admins.findByPk(id_admin,{include: { association: 'ADMacessos'}});
     if(!admin){
-      return res.status(400).json({ error: 'Nenhum acesso cadastrado por esse administrador'});
+      return res.status(400).json({ error: 'Administrador não encontrado em nosso banco de dados'});
     }
     return res.json(admin);
   },
-  
+
   async vendindex(req,res){
     const { id_vendedor } = req.params;
     const vendedor = await  Vendedor.findByPk(id_vendedor,{include: {association: 'VENDacessos'} });
     if(!vendedor){
-      return res.status(400).json({ error: 'Nenhum acesso cadastrado para esse vendedor'});
+      return res.status(400).json({ error: 'Vendedor não encontrado em nosso banco de dados'});
     }
     return res.json(vendedor);
   },

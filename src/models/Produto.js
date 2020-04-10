@@ -8,12 +8,13 @@ class Produto extends Model {
         estoque: DataTypes.INTEGER,
         categoria: DataTypes.STRING(50),
     },{
-        sequelize: connection   
+        sequelize: connection,
+        tableName: 'produtos',
     })
 }
-    /*static associate(models){
-        this.belongsToMany(models.Venda, { foreignKey:'id_produto', through: 'conter', as: 'produtos'})
-    }*/
+    static associate(models){
+        this.belongsToMany(models.Venda, { foreignKey:'id_produto', through: 'conter', as: 'vendas'})
+    }
 }
 
 module.exports = Produto;
