@@ -25,8 +25,8 @@ routes.post('/users/:id_cartao/recarga', RecargaController.store);
 
 routes.get('/vendedores', VendedorController.index);
 routes.post('/vendedores', VendedorController.store);
-routes.delete('/vendedor/:matricula', VendedorController.delete);
-routes.delete('/vendedor/:email', VendedorController.edelete);
+routes.delete('/vendedor/m/:matricula', VendedorController.delete);
+routes.delete('/vendedor/e/:email', VendedorController.edelete);
 
 
 routes.get('/vendas', VendaController.index);
