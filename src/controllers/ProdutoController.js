@@ -16,6 +16,18 @@ module.exports = {
     return res.json(venda);
   },
 
+  async delete(req,res)
+  {
+    const { nome } = req.params;
+    const produto = await Produto.findOne({ where: { nome: nome } });
+    
+    if(!produto){
+      return res.status(400).json({ error: 'Produto não encontrado em nosso banco de dados! '});
+    }
+    await produto.destroy();
+    return res.json();
+  },
+  
   async newProd(req,res){
     const { nome, preco, estoque, categoria } = req.body
 

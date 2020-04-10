@@ -7,6 +7,30 @@ module.exports = {
     return res.json(vendedores);
   },
 
+  async delete(req,res)
+  {
+    const { matricula } = req.params;
+    const vendedor = await Vendedor.findOne({ where: { matricula: matricula } });
+    
+    if(!vendedor){
+      return res.status(400).json({ error: 'Matrícula de vendedor não encontrado em nosso banco de dados! '});
+    }
+    await vendedor.destroy();
+    return res.json();
+  },
+
+  async edelete(req,res)
+  {
+    const { email } = req.params;
+    const vendedor = await Vendedor.findOne({ where: { email: email } });
+    
+    if(!vendedor){
+      return res.status(400).json({ error: 'Email do vendedor não encontrado em nosso banco de dados! '});
+    }
+    await vendedor.destroy();
+    return res.json();
+  },
+
   async store(req, res){
     const { matricula, nome, email, senha } = req.body
 

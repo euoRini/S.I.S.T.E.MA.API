@@ -16,6 +16,18 @@ module.exports = {
     return res.json(cardBmat);
   },
 
+  async delete(req,res)
+  {
+    const { matricula } = req.params;
+    const user = await User.findOne({ where: { matricula: matricula } });
+    
+    if(!user){
+      return res.status(400).json({ error: 'Matrícula de usuário não encontrado em nosso banco de dados! '});
+    }
+    await user.destroy();
+    return res.json();
+  },
+
   async store(req, res){
     const { matricula, nome, email, saldo } = req.body
 
@@ -23,4 +35,7 @@ module.exports = {
 
     return res.json(user);
   }
+
+  
+
 };
