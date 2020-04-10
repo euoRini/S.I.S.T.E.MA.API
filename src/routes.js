@@ -45,7 +45,7 @@ routes.get('/vendas/:id_venda/produto', ProdutoController.prodvend);
 routes.post('/vendas/:id_venda/produto', ProdutoController.store);
 routes.post('/produto', ProdutoController.newProd);
 routes.get('/produtos', ProdutoController.index);
-routes.delete('/produtos/:nome', VendedorController.delete);
+routes.delete('/produtos/:nome', ProdutoController.delete);
 
 
 module.exports = routes;
