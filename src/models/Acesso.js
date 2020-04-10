@@ -3,7 +3,6 @@ const { Model, DataTypes } = require('sequelize');
 class Acesso extends Model {
   static init(connection){
     super.init({
-      data_acesso: DataTypes.DATE,
   },{
     sequelize: connection
   })

@@ -9,10 +9,6 @@ module.exports = {
           allowNull: false,
           autoIncrement: true,
         },
-        data_recarga: {
-          type: Sequelize.DATE,
-          allowNull: false,
-        },
         modo_pagto: {
           type: Sequelize.STRING,
           allowNull: false,

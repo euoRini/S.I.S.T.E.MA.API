@@ -9,10 +9,6 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
       },
-      data_pagamento: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
       id_venda: {
         type: Sequelize.INTEGER,
         references: { 

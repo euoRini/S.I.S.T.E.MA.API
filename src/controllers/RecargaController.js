@@ -11,7 +11,7 @@ module.exports = {
 
   async store(req, res){
     const { id_cartao } = req.params;
-    const { data_recarga, modo_pagto, valor_recarga} = req.body;
+    const { modo_pagto, valor_recarga} = req.body;
 
     const user = await User.findByPk(id_cartao);
 
@@ -20,7 +20,6 @@ module.exports = {
     }
 
     const recarga = await Recarga.create({
-      data_recarga,
       modo_pagto,
       valor_recarga,
       id_cartao,

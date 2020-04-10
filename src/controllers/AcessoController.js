@@ -30,7 +30,6 @@ module.exports = {
 
   async store(req, res){
     const { id_admin, id_vendedor } = req.params;
-    const { data_acesso } = req.body;
 
     const admin = await Admins.findByPk(id_admin);
     const vendedor = await Vendedor.findByPk(id_vendedor);
@@ -46,7 +45,6 @@ module.exports = {
     const acesso = await Acesso.create({
       id_admin,
       id_vendedor,
-      data_acesso,
     });
 
     return res.json(acesso);

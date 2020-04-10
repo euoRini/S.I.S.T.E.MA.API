@@ -11,7 +11,7 @@ module.exports = {
 
   async store(req, res){
     const { id_venda } = req.params;
-    const { data_pagamento, total_pagto} = req.body;
+    const { total_pagto } = req.body;
 
     const venda = await Venda.findByPk(id_venda);
 
@@ -20,7 +20,6 @@ module.exports = {
     }
 
     const pagamento = await Pagamento.create({
-      data_pagamento,
       total_pagto,
       id_venda,
     });

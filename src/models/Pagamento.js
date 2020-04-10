@@ -3,7 +3,6 @@ const { Model, DataTypes } = require('sequelize');
 class Pagamento extends Model {
     static init(connection) {
         super.init({
-            data_pagamento: DataTypes.DATE,
             total_pagto: DataTypes.INTEGER,
         },{
             sequelize: connection

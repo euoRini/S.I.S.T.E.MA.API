@@ -3,7 +3,6 @@ const { Model, DataTypes } = require('sequelize');
 class Recarga extends Model {
     static init(sequelize) {
       super.init({
-        data_recarga: DataTypes.DATE,
         modo_pagto: DataTypes.STRING,
         valor_recarga: DataTypes.INTEGER,
       }, {

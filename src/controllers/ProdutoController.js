@@ -26,7 +26,12 @@ module.exports = {
       return res.status(400).json({ error: 'Venda não encontrada'});
     }
 
-    const [ produto ] = await Produto.findOrCreate({ where:{ nome }});
+    const [ produto ] = await Produto.findOrCreate({
+      where:{ nome },
+      preco,
+      estoque,
+      categoria
+      });
 
     await venda.addProduto(produto);
 
