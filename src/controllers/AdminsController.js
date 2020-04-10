@@ -9,21 +9,24 @@ module.exports = {
 
   async delete(req,res)
   {
-    const { login } = req.paramns;
+    const { login } = req.params;
     const admin = await Admins.findOne({ where: { login: login } });
+    
     if(!admin){
-      return res.status(400).json({ error: 'Login de administrador não encontrado em nosso banco de dados! '});      
+      return res.status(400).json({ error: 'Login de administrador não encontrado em nosso banco de dados! '});
     }
-    await Admins.destroy(admin);
+    await admin.destroy();
     return res.json();
   },
 
   async login(req,res){
     const { login } = req.params;
     const logadm = await Admins.findOne({ where: { login: login } });
+    
     if(!logadm){
       return res.status(400).json({ error: 'Login de administrador não encontrado em nosso banco de dados! '});
     }
+
     return res.json(logadm);
   },
 
