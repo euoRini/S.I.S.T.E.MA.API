@@ -17,6 +17,7 @@ routes.get('/users/:matricula', UserController.credenciais);
 routes.get('/admins', AdminsController.index);
 routes.get('/admins/:login', AdminsController.login);
 routes.post('/admins', AdminsController.store);
+routes.delete('/admins/:login', AdminsController.delete);
 
 routes.get('/recargas', RecargaController.index);
 routes.post('/users/:id_cartao/recarga', RecargaController.store);
