@@ -16,7 +16,7 @@ module.exports = {
       return res.status(400).json({ error: 'Login de administrador não encontrado em nosso banco de dados! '});
     }
     await admin.destroy();
-    return res.json();
+    return res.status(200).json({error: 'Administrador excluído'});
   },
   
   async edelete(req,res)
@@ -28,7 +28,7 @@ module.exports = {
       return res.status(400).json({ error: 'Email do administrador não encontrado em nosso banco de dados! '});
     }
     await admin.destroy();
-    return res.json();
+    return res.status(200).json({error: 'Administrador excluído'});
   },
 
   async login(req,res){
@@ -41,6 +41,7 @@ module.exports = {
 
     return res.json(logadm);
   },
+
 
   async store(req, res){
     const { nome, login, senha, email } = req.body

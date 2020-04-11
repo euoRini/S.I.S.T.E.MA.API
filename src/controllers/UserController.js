@@ -25,7 +25,7 @@ module.exports = {
       return res.status(400).json({ error: 'Matrícula de usuário não encontrado em nosso banco de dados! '});
     }
     await user.destroy();
-    return res.json();
+    return res.status(200).json({error: 'Usuario excluído'});
   },
 
   async store(req, res){

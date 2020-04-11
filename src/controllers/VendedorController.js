@@ -16,7 +16,7 @@ module.exports = {
       return res.status(400).json({ error: 'Matrícula de vendedor não encontrado em nosso banco de dados! '});
     }
     await vendedor.destroy();
-    return res.json();
+    return res.status(200).json({error: 'Vendedor excluído'});
   },
 
   async edelete(req,res)
@@ -28,7 +28,7 @@ module.exports = {
       return res.status(400).json({ error: 'Email do vendedor não encontrado em nosso banco de dados! '});
     }
     await vendedor.destroy();
-    return res.json();
+    return res.status(200).json({error: 'Vendedor excluído'});
   },
 
   async store(req, res){

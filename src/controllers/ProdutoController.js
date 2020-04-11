@@ -25,7 +25,7 @@ module.exports = {
       return res.status(400).json({ error: 'Produto não encontrado em nosso banco de dados! '});
     }
     await produto.destroy();
-    return res.json();
+    return res.status(200).json({error: 'Produto excluído'});
   },
   
   async newProd(req,res){
