@@ -36,6 +36,17 @@ module.exports = {
     return res.json(produto);
   },
 
+  async findByName(req,res){
+    const { nome } = req.params;
+    const find = await Admins.findOne({ where: { nome: nome } });
+    
+    if(!find){
+      return res.status(400).json({ error: 'Produto não encontrado em nosso banco de dados! '});
+    }
+
+    return res.json(find);
+  },
+
   async store(req, res){
     const {id_venda} = req.params;
     const { nome, preco, estoque, categoria } = req.body

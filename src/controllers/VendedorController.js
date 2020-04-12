@@ -7,6 +7,28 @@ module.exports = {
     return res.json(vendedores);
   },
 
+  async findbymat(req,res){
+    const { matricula } = req.params;
+    const find = await Admins.findOne({ where: { matricula: matricula } });
+    
+    if(!find){
+      return res.status(400).json({ error: 'matricula de administrador não encontrado em nosso banco de dados! '});
+    }
+
+    return res.json(find);
+  },
+
+  async findbyemail(req,res){
+    const { email } = req.params;
+    const find = await Admins.findOne({ where: { email: email } });
+    
+    if(!find){
+      return res.status(400).json({ error: 'email do administrador não encontrado em nosso banco de dados! '});
+    }
+
+    return res.json(find);
+  },
+
   async delete(req,res)
   {
     const { matricula } = req.params;

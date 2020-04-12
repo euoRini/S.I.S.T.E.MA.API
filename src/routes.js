@@ -16,7 +16,8 @@ routes.get('/users/:matricula', UserController.credenciais);
 routes.delete('/users/:matricula', UserController.delete);
 
 routes.get('/admins', AdminsController.index);
-routes.get('/admins/:login', AdminsController.login);
+routes.get('/admins/:login', AdminsController.findBylogin);
+routes.get('/admins/:email', AdminsController.findByemail);
 routes.post('/admins', AdminsController.store);
 routes.delete('/admins/l/:login', AdminsController.delete);
 routes.delete('/admins/e/:email', AdminsController.edelete);
@@ -28,6 +29,8 @@ routes.get('/vendedores', VendedorController.index);
 routes.post('/vendedores', VendedorController.store);
 routes.delete('/vendedor/m/:matricula', VendedorController.delete);
 routes.delete('/vendedor/e/:email', VendedorController.edelete);
+routes.get('/vendedor/:matricula', VendedorController.findbymat);
+routes.get('/vendedor/:email', VendedorController.findbyemail);
 
 
 routes.get('/vendas', VendaController.index);
@@ -46,6 +49,7 @@ routes.post('/vendas/:id_venda/produto', ProdutoController.store);
 routes.post('/produto', ProdutoController.newProd);
 routes.get('/produtos', ProdutoController.index);
 routes.delete('/produtos/:nome', ProdutoController.delete);
+routes.get('/produtos/:nome', ProdutoController.findByName);
 
 
 module.exports = routes;

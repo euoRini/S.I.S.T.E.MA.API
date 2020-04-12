@@ -31,17 +31,27 @@ module.exports = {
     return res.status(200).json({error: 'Administrador excluído'});
   },
 
-  async login(req,res){
+  async findBylogin(req,res){
     const { login } = req.params;
-    const logadm = await Admins.findOne({ where: { login: login } });
+    const find = await Admins.findOne({ where: { login: login } });
     
-    if(!logadm){
+    if(!find){
       return res.status(400).json({ error: 'Login de administrador não encontrado em nosso banco de dados! '});
     }
 
-    return res.json(logadm);
+    return res.json(find);
   },
 
+  async findByemail(req,res){
+    const { email } = req.params;
+    const find = await Admins.findOne({ where: { email: email } });
+    
+    if(!find){
+      return res.status(400).json({ error: 'Email de administrador não encontrado em nosso banco de dados! '});
+    }
+
+    return res.json(find);
+  },
 
   async store(req, res){
     const { nome, login, senha, email } = req.body
