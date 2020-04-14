@@ -14,6 +14,7 @@ routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
 routes.get('/users/:matricula', UserController.credenciais);
 routes.delete('/users/:matricula', UserController.delete);
+routes.put('/users/:matricula', UserController.update);
 
 routes.get('/admins', AdminsController.index);
 routes.get('/admins/:login', AdminsController.findBylogin);
@@ -23,14 +24,14 @@ routes.delete('/admins/l/:login', AdminsController.delete);
 routes.delete('/admins/e/:email', AdminsController.edelete);
 
 routes.get('/recargas', RecargaController.index);
-routes.post('/users/:id_cartao/recarga', RecargaController.store);
+routes.post('/recarga/:id_cartao', RecargaController.store);
 
 routes.get('/vendedores', VendedorController.index);
 routes.post('/vendedores', VendedorController.store);
-routes.delete('/vendedor/m/:matricula', VendedorController.delete);
-routes.delete('/vendedor/e/:email', VendedorController.edelete);
-routes.get('/vendedor/:matricula', VendedorController.findbymat);
-routes.get('/vendedor/:email', VendedorController.findbyemail);
+routes.delete('/vendedores/m/:matricula', VendedorController.delete);
+routes.delete('/vendedores/e/:email', VendedorController.edelete);
+routes.get('/vendedores/:matricula', VendedorController.findbymat);
+routes.get('/vendedores/:email', VendedorController.findbyemail);
 
 
 routes.get('/vendas', VendaController.index);
@@ -42,7 +43,7 @@ routes.post('/vendas/:id_venda/pagamento', PagamentoController.store);
 routes.get('/acessos', AcessoController.index);
 routes.post('/admins/:id_admin/:id_vendedor/acesso', AcessoController.store);
 routes.get('/admins/:id_admin/acesso', AcessoController.admindex);
-routes.get('/vendedor/:id_vendedor/acesso', AcessoController.vendindex);
+routes.get('/vendedores/:id_vendedor/acesso', AcessoController.vendindex);
 
 routes.get('/vendas/:id_venda/produto', ProdutoController.prodvend);
 routes.post('/vendas/:id_venda/produto', ProdutoController.store);

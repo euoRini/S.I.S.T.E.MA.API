@@ -9,11 +9,25 @@ module.exports = {
 
   async credenciais(req,res){
     const { matricula } = req.params;
-    const cardBmat = await User.findOne({ where: { matricula: matricula } });
+    const cardBmat = await User.findOne({ where: { matricula: matricula }, include: { association: 'ADMacessos'} });
     if(!cardBmat){
       return res.status(400).json({ error: 'Matrícula não encontrada no banco de dados!'});
     }
     return res.json(cardBmat);
+  },
+
+  async update(req,res)
+  {
+    const {matricula} = req.params;
+    const saldo = req.body;
+    const user = await User.findOne({ where: { matricula: matricula } });
+
+    if(!user){
+      return res.status(400).json({ error: 'Matrícula de usuário não encontrado em nosso banco de dados! '});
+    }
+
+    const recarga = await User.update({ saldo: saldo, where: { matricula: matricula } });
+    return res.json(recarga);
   },
 
   async delete(req,res)

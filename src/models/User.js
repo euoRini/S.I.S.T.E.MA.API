@@ -11,6 +11,9 @@ class User extends Model {
     sequelize: connection
   })
   }
+  static associate(models) {
+    this.hasMany(models.Recarga, {foreignKey: 'id_user', as: 'CrdRec'});
+  }
 }
 
 module.exports = User;

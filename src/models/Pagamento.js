@@ -10,7 +10,8 @@ class Pagamento extends Model {
     }
     static associate(models){
         this.belongsTo(models.Venda, { foreignKey: 'id_venda', as: 'venda'});
-      }
+        this.belongsTo(models.User, { foreignKey: 'id_cartao', as: 'user'});
+    }
 }
 
 module.exports = Pagamento;
