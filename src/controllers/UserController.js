@@ -26,7 +26,7 @@ module.exports = {
       return res.status(400).json({ error: 'Usuário não encontrado em nosso banco de dados! '});
     }
 
-    const recarga = await User.update({ values:{ saldo : saldo }});
+    const recarga = await User.update({ saldo:saldo },{where:{matricula:matricula}});
     return res.json(recarga);
   },
 
