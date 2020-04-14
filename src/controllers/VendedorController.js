@@ -59,6 +59,6 @@ module.exports = {
 
     const vendedor = await Vendedor.create({ matricula, nome, email, senha });
 
-    return res.status(200).json(vendedor);
+    return res.status(200).send('200');
   }
 };
