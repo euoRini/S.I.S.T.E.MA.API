@@ -15,43 +15,41 @@ routes.post('/users', UserController.store);
 routes.get('/users/:matricula', UserController.credenciais);
 routes.delete('/users/:matricula', UserController.delete);
 
+routes.delete('/admins/e/:email', AdminsController.deleteByEmail);
+routes.delete('/admins/l/:login', AdminsController.deleteByLogin);
+routes.get('/admins/l/:login', AdminsController.findBylogin);
+routes.get('/admins/e/:email', AdminsController.findByemail);
 routes.get('/admins', AdminsController.index);
-routes.get('/admins/:login', AdminsController.findBylogin);
-routes.get('/admins/:email', AdminsController.findByemail);
 routes.post('/admins', AdminsController.store);
-routes.delete('/admins/l/:login', AdminsController.delete);
-routes.delete('/admins/e/:email', AdminsController.edelete);
 
 routes.get('/recargas', RecargaController.index);
 routes.post('/recargas/:id_cartao', RecargaController.store);
 routes.put('/recargas/:matricula', UserController.update);
 
+routes.delete('/vendedores/m/:matricula', VendedorController.deleteByMatricula);
+routes.delete('/vendedores/e/:email', VendedorController.deleteByEmail);
+routes.get('/vendedores/e/:email', VendedorController.findByEmail);
+routes.get('/vendedores/m/:matricula', VendedorController.findByMatricula);
 routes.get('/vendedores', VendedorController.index);
 routes.post('/vendedores', VendedorController.store);
-routes.delete('/vendedores/m/:matricula', VendedorController.delete);
-routes.delete('/vendedores/e/:email', VendedorController.edelete);
-routes.get('/vendedores/:matricula', VendedorController.findbymat);
-routes.get('/vendedores/:email', VendedorController.findbyemail);
-
 
 routes.get('/vendas', VendaController.index);
-routes.post('/vendedores/:id_vendedor/venda',VendaController.store);
+routes.post('/vendas/:id_vendedor/',VendaController.store);
 
 routes.get('/pagamentos', PagamentoController.index);
-routes.post('/vendas/:id_venda/pagamento', PagamentoController.store);
+routes.post('/pagamentos/:id_venda', PagamentoController.store);
 
-routes.get('/acessos', AcessoController.index);
-routes.post('/acessos/:id_vendedor/', AcessoController.store);
-routes.get('/acessos/a/:id_admin/', AcessoController.admindex);
-routes.get('/acessos/v/:id_vendedor/', AcessoController.vendindex);
 routes.put('/acessos/:id_acesso/', AcessoController.confirm);
+routes.get('/acessos', AcessoController.index);
+routes.get('/acessos/a/:id_admin/', AcessoController.indexAdmin);
+routes.get('/acessos/v/:id_vendedor/', AcessoController.indexVendedor);
+routes.post('/acessos/:id_vendedor/', AcessoController.store);
 
-routes.get('/vendas/:id_venda/produto', ProdutoController.prodvend);
-routes.post('/vendas/:id_venda/produto', ProdutoController.store);
-routes.post('/produto', ProdutoController.newProd);
-routes.get('/produtos', ProdutoController.index);
-routes.delete('/produtos/:nome', ProdutoController.delete);
+routes.post('/produtos/:id_venda/', ProdutoController.addProdutosVenda);
+routes.delete('/produtos/:nome', ProdutoController.deleteByName);
 routes.get('/produtos/:nome', ProdutoController.findByName);
-
+routes.get('/produtos', ProdutoController.index);
+routes.get('/produtos/:id_venda/', ProdutoController.produtosVenda);
+routes.post('/produto', ProdutoController.store);
 
 module.exports = routes;

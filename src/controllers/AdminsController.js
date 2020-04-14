@@ -1,13 +1,20 @@
 const Admins = require('../models/Admins');
 
 module.exports = {
-  async index(req, res){
-    const admins = await Admins.findAll();
 
-    return res.json(admins);
+  async deleteByEmail(req,res)
+  {
+    const { email } = req.params;
+    const admin = await Admins.findOne({ where: { email: email } });
+    
+    if(!admin){
+      return res.status(400).json({ error: 'Email do administrador não encontrado em nosso banco de dados! '});
+    }
+    await admin.destroy();
+    return res.status(200).json({error: 'Administrador excluído'});
   },
 
-  async delete(req,res)
+  async deleteByLogin(req,res)
   {
     const { login } = req.params;
     const admin = await Admins.findOne({ where: { login: login } });
@@ -18,17 +25,16 @@ module.exports = {
     await admin.destroy();
     return res.status(200).json({error: 'Administrador excluído'});
   },
-  
-  async edelete(req,res)
-  {
+   
+  async findByemail(req,res){
     const { email } = req.params;
-    const admin = await Admins.findOne({ where: { email: email } });
+    const find = await Admins.findOne({ where: { email: email } });
     
-    if(!admin){
-      return res.status(400).json({ error: 'Email do administrador não encontrado em nosso banco de dados! '});
+    if(!find){
+      return res.status(400).json({ error: 'Email de administrador não encontrado em nosso banco de dados! '});
     }
-    await admin.destroy();
-    return res.status(200).json({error: 'Administrador excluído'});
+
+    return res.json(find);
   },
 
   async findBylogin(req,res){
@@ -42,15 +48,10 @@ module.exports = {
     return res.json(find);
   },
 
-  async findByemail(req,res){
-    const { email } = req.params;
-    const find = await Admins.findOne({ where: { email: email } });
-    
-    if(!find){
-      return res.status(400).json({ error: 'Email de administrador não encontrado em nosso banco de dados! '});
-    }
+  async index(req, res){
+    const admins = await Admins.findAll();
 
-    return res.json(find);
+    return res.json(admins);
   },
 
   async store(req, res){

@@ -3,12 +3,6 @@ const Vendedor = require('../models/Vendedor');
 const Acesso = require('../models/Acesso');
 
 module.exports = {
-  async index(req,res)
-  {
-    const acessos = await Acesso.findAll();
-
-    return res.json(acessos);
-  },
 
   async confirm(req,res)
   {
@@ -27,8 +21,15 @@ module.exports = {
     return res.status(200).json(confirm);
 
   },
+  
+  async index(req,res)
+  {
+    const acessos = await Acesso.findAll();
 
-  async admindex(req,res)
+    return res.json(acessos);
+  },
+
+  async indexAdmin(req,res)
   {
     const { id_admin } = req.params;
     const admin = await  Admins.findByPk(id_admin,{include: { association: 'ADMacessos'}});
@@ -38,7 +39,7 @@ module.exports = {
     return res.json(admin);
   },
 
-  async vendindex(req,res)
+  async indexVendedor(req,res)
   {
     const { id_vendedor } = req.params;
     const vendedor = await  Vendedor.findByPk(id_vendedor,{include: {association: 'VENDacessos'} });

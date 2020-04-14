@@ -1,35 +1,20 @@
 const Vendedor = require('../models/Vendedor');
 
 module.exports = {
-  async index(req, res){
-    const vendedores = await Vendedor.findAll();
 
-    return res.json(vendedores);
-  },
-
-  async findbymat(req,res){
-    const { matricula } = req.params;
-    const find = await Admins.findOne({ where: { matricula: matricula } });
-    
-    if(!find){
-      return res.status(400).json({ error: 'matricula de administrador não encontrado em nosso banco de dados! '});
-    }
-
-    return res.json(find);
-  },
-
-  async findbyemail(req,res){
+  async deleteByEmail(req,res)
+  {
     const { email } = req.params;
-    const find = await Admins.findOne({ where: { email: email } });
+    const vendedor = await Vendedor.findOne({ where: { email: email } });
     
-    if(!find){
-      return res.status(400).json({ error: 'email do administrador não encontrado em nosso banco de dados! '});
+    if(!vendedor){
+      return res.status(400).json({ error: 'Email do vendedor não encontrado em nosso banco de dados! '});
     }
-
-    return res.json(find);
+    await vendedor.destroy();
+    return res.status(200).json({error: 'Vendedor excluído'});
   },
 
-  async delete(req,res)
+  async deleteByMatricula(req,res)
   {
     const { matricula } = req.params;
     const vendedor = await Vendedor.findOne({ where: { matricula: matricula } });
@@ -41,16 +26,32 @@ module.exports = {
     return res.status(200).json({error: 'Vendedor excluído'});
   },
 
-  async edelete(req,res)
-  {
+  async findByEmail(req,res){
     const { email } = req.params;
-    const vendedor = await Vendedor.findOne({ where: { email: email } });
+    const find = await Admins.findOne({ where: { email: email } });
     
-    if(!vendedor){
-      return res.status(400).json({ error: 'Email do vendedor não encontrado em nosso banco de dados! '});
+    if(!find){
+      return res.status(400).json({ error: 'email do administrador não encontrado em nosso banco de dados! '});
     }
-    await vendedor.destroy();
-    return res.status(200).json({error: 'Vendedor excluído'});
+
+    return res.json(find);
+  },
+
+  async findByMatricula(req,res){
+    const { matricula } = req.params;
+    const find = await Admins.findOne({ where: { matricula: matricula } });
+    
+    if(!find){
+      return res.status(400).json({ error: 'matricula de administrador não encontrado em nosso banco de dados! '});
+    }
+
+    return res.json(find);
+  },
+
+  async index(req, res){
+    const vendedores = await Vendedor.findAll();
+
+    return res.json(vendedores);
   },
 
   async store(req, res){
