@@ -42,7 +42,7 @@ module.exports = {
     const find = await Admins.findOne({ where: { login: login } });
     
     if(!find){
-      return res.send('400');
+      return res.status(400).send('400');
     }
 
     return res.status(200).json(find);
