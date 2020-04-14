@@ -56,7 +56,6 @@ module.exports = {
 
   async store(req, res){
     const { nome, login, senha, email } = req.body
-
     const admin = await Admins.create({ nome, login, senha, email});
 
     return res.status(200).send('200');
