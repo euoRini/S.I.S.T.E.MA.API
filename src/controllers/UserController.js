@@ -18,10 +18,10 @@ module.exports = {
 
   async update(req,res)
   {
-    const {id_cartao} = req.params;
+    const {matricula} = req.params;
     const saldo = req.body;
-    
-    const user = await User.findByPK(id_cartao);
+
+    const user = await User.findOne({where:{matricula:matricula}});
 
     if(!user){
       return res.status(400).json({ error: 'Usuário não encontrado em nosso banco de dados! '});

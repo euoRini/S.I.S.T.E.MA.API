@@ -24,7 +24,7 @@ routes.delete('/admins/e/:email', AdminsController.edelete);
 
 routes.get('/recargas', RecargaController.index);
 routes.post('/recargas/:id_cartao', RecargaController.store);
-routes.put('/recargas/:id_cartao', UserController.update);
+routes.put('/recargas/:matricula', UserController.update);
 
 routes.get('/vendedores', VendedorController.index);
 routes.post('/vendedores', VendedorController.store);
