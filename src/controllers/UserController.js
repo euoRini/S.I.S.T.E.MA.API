@@ -20,14 +20,13 @@ module.exports = {
   {
     const {matricula} = req.params;
     const saldo = req.body;
-    const att = {saldo : saldo};
     const user = await User.findOne({where:{matricula:matricula}});
 
     if(!user){
       return res.status(400).json({ error: 'Usuário não encontrado em nosso banco de dados! '});
     }
 
-    const recarga = await User.update({ att });
+    const recarga = await User.update({ values:{ saldo : saldo }});
     return res.json(recarga);
   },
 
