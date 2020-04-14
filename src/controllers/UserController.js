@@ -11,7 +11,7 @@ module.exports = {
     const { matricula } = req.params;
     const cardBmat = await User.findOne({ where: { matricula: matricula } }, {include: { association: 'CrdRec'}});
     if(!cardBmat){
-      return res.status(400).json({ error: 'Matrícula não encontrada no banco de dados!'});
+      return res.status(400).json({ error: 'Matrícula não encontrada no banco de dados!'}).send({'Matrícula não encontrada no banco de dados!'});
     }
     return res.json(cardBmat);
   },
