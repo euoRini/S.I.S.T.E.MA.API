@@ -59,6 +59,6 @@ module.exports = {
 
     const admin = await Admins.create({ nome, login, senha, email});
 
-    return res.status(200).json(admin);
+    return res.status(200);
   }
 };
