@@ -14,7 +14,6 @@ routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
 routes.get('/users/:matricula', UserController.credenciais);
 routes.delete('/users/:matricula', UserController.delete);
-routes.put('/users/:matricula', UserController.update);
 
 routes.get('/admins', AdminsController.index);
 routes.get('/admins/:login', AdminsController.findBylogin);
@@ -25,6 +24,7 @@ routes.delete('/admins/e/:email', AdminsController.edelete);
 
 routes.get('/recargas', RecargaController.index);
 routes.post('/recarga/:id_cartao', RecargaController.store);
+routes.put('/recarga/:id_cartao', UserController.update);
 
 routes.get('/vendedores', VendedorController.index);
 routes.post('/vendedores', VendedorController.store);

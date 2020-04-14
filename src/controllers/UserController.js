@@ -18,15 +18,16 @@ module.exports = {
 
   async update(req,res)
   {
-    const {matricula} = req.params;
+    const {id_cartao} = req.params;
     const saldo = req.body;
-    const user = await User.findOne({ where: { matricula: matricula } });
+    
+    const user = await User.findByPK(id_cartao);
 
     if(!user){
-      return res.status(400).json({ error: 'Matrícula de usuário não encontrado em nosso banco de dados! '});
+      return res.status(400).json({ error: 'Usuário não encontrado em nosso banco de dados! '});
     }
 
-    const recarga = await User.update({ saldo: saldo, where: { matricula: matricula } });
+    const recarga = await User.update({ saldo: saldo });
     return res.json(recarga);
   },
 
