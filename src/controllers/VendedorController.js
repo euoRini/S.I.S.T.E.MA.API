@@ -34,7 +34,7 @@ module.exports = {
       return res.status(400).json({ error: 'email do administrador não encontrado em nosso banco de dados! '});
     }
 
-    return res.json(find);
+    return res.status(200).json(find);
   },
 
   async findByMatricula(req,res){
@@ -45,13 +45,13 @@ module.exports = {
       return res.status(400).json({ error: 'matricula de administrador não encontrado em nosso banco de dados! '});
     }
 
-    return res.json(find);
+    return res.status(200).json(find);
   },
 
   async index(req, res){
     const vendedores = await Vendedor.findAll();
 
-    return res.json(vendedores);
+    return res.status(200).json(vendedores);
   },
 
   async store(req, res){
@@ -59,6 +59,6 @@ module.exports = {
 
     const vendedor = await Vendedor.create({ matricula, nome, email, senha });
 
-    return res.json(vendedor);
+    return res.status(200).json(vendedor);
   }
 };

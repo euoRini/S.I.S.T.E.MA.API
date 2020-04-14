@@ -34,7 +34,7 @@ module.exports = {
       return res.status(400).json({ error: 'Email de administrador não encontrado em nosso banco de dados! '});
     }
 
-    return res.json(find);
+    return res.status(200).json(find);
   },
 
   async findBylogin(req,res){
@@ -45,7 +45,7 @@ module.exports = {
       return res.status(400).json({ error: 'Login de administrador não encontrado em nosso banco de dados! '});
     }
 
-    return res.json(find);
+    return res.status(200).json(find);
   },
 
   async index(req, res){
@@ -59,6 +59,6 @@ module.exports = {
 
     const admin = await Admins.create({ nome, login, senha, email});
 
-    return res.json(admin);
+    return res.status(200).json(admin);
   }
 };

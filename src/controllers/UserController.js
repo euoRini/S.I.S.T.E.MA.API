@@ -4,7 +4,7 @@ module.exports = {
   async index(req, res){
     const users = await User.findAll();
 
-    return res.json(users);
+    return res.status(200).json(users);
   },
 
   async credenciais(req,res){
@@ -13,7 +13,7 @@ module.exports = {
     if(!cardBmat){
       return res.status(400).json({ error: 'Matrícula não encontrada no banco de dados!'});
     }
-    return res.json(cardBmat);
+    return res.status(200).json(cardBmat);
   },
 
   async update(req,res)
@@ -40,7 +40,7 @@ module.exports = {
 
     const user = await User.create({ matricula, nome, email, saldo });
 
-    return res.json(user);
+    return res.status(200).json(user);
   }
 
   

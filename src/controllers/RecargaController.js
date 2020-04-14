@@ -6,7 +6,7 @@ module.exports = {
   {
     const recargas = await Recarga.findAll();
 
-    return res.json(recargas);
+    return res.status(200).json(recargas);
   },
 
   async store(req, res){
@@ -25,6 +25,6 @@ module.exports = {
       id_cartao,
     });
 
-    return res.json(recarga);
+    return res.status(200).json(recarga);
   }
 };

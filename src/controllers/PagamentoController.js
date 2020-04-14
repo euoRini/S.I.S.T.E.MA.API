@@ -6,7 +6,7 @@ module.exports = {
   {
     const pagamentos = await Pagamento.findAll();
 
-    return res.json(pagamentos);
+    return res.status(200).json(pagamentos);
   },
 
   async store(req, res){
@@ -24,6 +24,6 @@ module.exports = {
       id_venda,
     });
 
-    return res.json(pagamento);
+    return res.status(200).json(pagamento);
   }
 };

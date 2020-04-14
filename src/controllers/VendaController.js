@@ -6,8 +6,9 @@ module.exports = {
   {
     const vendas = await Venda.findAll();
 
-    return res.json(vendas);
+    return res.status(200).json(vendas);
   },
+
   async store(req, res){
     const { id_vendedor } = req.params;
     const { total_venda } = req.body;
@@ -23,6 +24,6 @@ module.exports = {
       total_venda,
     });
 
-    return res.json(venda);
+    return res.status(200).json(venda);
   }
 };

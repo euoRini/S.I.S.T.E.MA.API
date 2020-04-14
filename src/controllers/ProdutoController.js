@@ -21,7 +21,7 @@ module.exports = {
 
     await venda.addProduto(produto);
 
-    return res.json(produto);
+    return res.status(200).json(produto);
   },
 
   async deleteByName(req,res)
@@ -45,13 +45,13 @@ module.exports = {
       return res.status(400).json({ error: 'Produto não encontrado em nosso banco de dados! '});
     }
 
-    return res.json(find);
+    return res.status(200).json(find);
   },
 
   async index(req, res){
     const produtos = await Produto.findAll();
 
-    return res.json(produtos);
+    return res.status(200).json(produtos);
   },
 
   async produtosVenda(req, res){
@@ -67,6 +67,6 @@ module.exports = {
 
     const produto = await Produto.create({ nome, preco, estoque, categoria });
 
-    return res.json(produto);
+    return res.status(200).json(produto);
   }
 };
