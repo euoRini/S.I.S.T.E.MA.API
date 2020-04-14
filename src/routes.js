@@ -23,8 +23,8 @@ routes.delete('/admins/l/:login', AdminsController.delete);
 routes.delete('/admins/e/:email', AdminsController.edelete);
 
 routes.get('/recargas', RecargaController.index);
-routes.post('/recarga/:id_cartao', RecargaController.store);
-routes.put('/recarga/:id_cartao', UserController.update);
+routes.post('/recargas/:id_cartao', RecargaController.store);
+routes.put('/recargas/:id_cartao', UserController.update);
 
 routes.get('/vendedores', VendedorController.index);
 routes.post('/vendedores', VendedorController.store);
