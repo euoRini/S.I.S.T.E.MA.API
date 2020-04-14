@@ -57,6 +57,14 @@ Rotas:
 	https://sistemaifrj.herokuapp.com/admins/e/{$email}
 Corpo: N/A
 
+5) Confirma o acesso de algum vendedor
+Método: POST
+Rota: https://sistemaifrj.herokuapp.com/admins/{$id_admin}/{$id_vendedor}/acesso
+Corpo:
+{
+	"id_admin":"{$admin}"
+}
+
 
 =-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=
 =-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=
