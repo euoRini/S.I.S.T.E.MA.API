@@ -26,7 +26,7 @@ module.exports = {
     const confirm = await Acesso.update({ id_admin : req.body.id_admin },{where:{id:id_acesso}});
     return res.status(200).json(confirm);
 
-  }
+  },
 
   async admindex(req,res)
   {
