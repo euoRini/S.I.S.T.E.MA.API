@@ -1,24 +1,24 @@
 ACESSOS:
 1) Criar
 Método: POST
-Rota: https://sistemaifrj.herokuapp.com/admins/{id_admin}/{id_vendedor}/acesso
+Rota: https://sistemaifrj.herokuapp.com/acesso/{id_vendedor}
 Corpo: 
 {
 }
 
 2)Index <- Admin
 Método: GET
-Rota: https://sistemaifrj.herokuapp.com/admins/{id_admin}/acesso
+Rota: https://sistemaifrj.herokuapp.com/acesso/{id_admin}
 Corpo: N/A
 
 3)Index <- Vendedor
 Método: GET
-Rota: https://sistemaifrj.herokuapp.com/vendedor/{$id_vendedor}/acesso
+Rota: https://sistemaifrj.herokuapp.com/acesso/{$id_vendedor}
 Corpo: N/A
 
 4) Index
 Método: GET
-Rota: https://sistemaifrj.herokuapp.com/acessos
+Rota: https://sistemaifrj.herokuapp.com/acesso/{$id_acesso}
 Corpo: N/A
 
 
