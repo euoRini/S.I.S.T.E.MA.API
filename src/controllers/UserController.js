@@ -9,7 +9,7 @@ module.exports = {
 
   async credenciais(req,res){
     const { matricula } = req.params;
-    const cardBmat = await User.findOne({ where: { matricula: matricula }, include: { association: 'ADMacessos'} });
+    const cardBmat = await User.findOne({ where: { matricula: matricula }, include: { association: 'CrdRec'} });
     if(!cardBmat){
       return res.status(400).json({ error: 'Matrícula não encontrada no banco de dados!'});
     }
