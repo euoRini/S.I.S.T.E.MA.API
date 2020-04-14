@@ -37,7 +37,7 @@ module.exports = {
 
   async store(req, res){
     const { matricula, nome, email, saldo } = req.body
-
+    
     const user = await User.create({ matricula, nome, email, saldo });
 
     return res.status(200).send('200');
