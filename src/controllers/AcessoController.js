@@ -10,7 +10,26 @@ module.exports = {
     return res.json(acessos);
   },
 
-  async admindex(req,res){
+  async confirm(req,res)
+  {
+    const { id_acesso } = req.params;
+    const { id_admin } = req.body;
+    const admin = await Admins.findByPk(id_admin);
+    const acesso = await Acesso.findByPk(id_acesso);
+    if(!admin){
+      return res.status(400).json({ error: 'Administrador não encontrado em nosso banco de dados'});
+    }
+    if(!acesso){
+      return res.status(400).json({ error: 'Acesso não encontrado em nosso banco de dados'});
+    }
+
+    const confirm = await Acesso.update({ id_admin : req.body.id_admin },{where:{id:id_acesso}});
+    return res.status(200).json(confirm);
+
+  }
+
+  async admindex(req,res)
+  {
     const { id_admin } = req.params;
     const admin = await  Admins.findByPk(id_admin,{include: { association: 'ADMacessos'}});
     if(!admin){
@@ -19,7 +38,8 @@ module.exports = {
     return res.json(admin);
   },
 
-  async vendindex(req,res){
+  async vendindex(req,res)
+  {
     const { id_vendedor } = req.params;
     const vendedor = await  Vendedor.findByPk(id_vendedor,{include: {association: 'VENDacessos'} });
     if(!vendedor){
@@ -29,15 +49,9 @@ module.exports = {
   },
 
   async store(req, res){
-    const { id_admin, id_vendedor } = req.params;
-
-    const admin = await Admins.findByPk(id_admin);
+    const { id_vendedor } = req.params;
+    const { id_admin } = req.body;
     const vendedor = await Vendedor.findByPk(id_vendedor);
-
-    if(!admin){
-      return res.status(400).json({ error: 'Administrador não encontrado'});
-    }
-
     if(!vendedor){
       return res.status(400).json({ error: 'Vendedor não encontrado'});
     }

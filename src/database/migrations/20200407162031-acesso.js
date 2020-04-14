@@ -11,6 +11,7 @@ module.exports = {
       },
 
       id_vendedor: {
+        allowNull:false,
         type: Sequelize.INTEGER,
         references: { 
           model: 'vendedors', 
@@ -21,6 +22,7 @@ module.exports = {
       },
 
       id_admin: {
+        allowNull:true,
         type: Sequelize.INTEGER,
         references: { 
           model: 'admins', 

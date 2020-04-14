@@ -41,9 +41,10 @@ routes.get('/pagamentos', PagamentoController.index);
 routes.post('/vendas/:id_venda/pagamento', PagamentoController.store);
 
 routes.get('/acessos', AcessoController.index);
-routes.post('/admins/:id_admin/:id_vendedor/acesso', AcessoController.store);
+routes.post('/admins/:id_vendedor/acesso', AcessoController.store);
 routes.get('/admins/:id_admin/acesso', AcessoController.admindex);
 routes.get('/vendedores/:id_vendedor/acesso', AcessoController.vendindex);
+routes.put('/acesso/:id_acesso/', AcessoController.confirm);
 
 routes.get('/vendas/:id_venda/produto', ProdutoController.prodvend);
 routes.post('/vendas/:id_venda/produto', ProdutoController.store);
