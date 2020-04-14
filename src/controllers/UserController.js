@@ -20,7 +20,7 @@ module.exports = {
   {
     const {matricula} = req.params;
     const saldo = req.body;
-    const att = {saldo : req.body.saldo};
+    const att = {saldo : saldo};
     const user = await User.findOne({where:{matricula:matricula}});
 
     if(!user){
