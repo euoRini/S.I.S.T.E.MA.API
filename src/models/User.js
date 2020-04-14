@@ -12,7 +12,7 @@ class User extends Model {
   })
   }
   static associate(models) {
-    this.hasMany(models.Recarga, {foreignKey: 'id_user', as: 'CrdRec'});
+    this.hasMany(models.Recarga, {foreignKey: 'id_cartao', as: 'CrdRec'});
   }
 }
 
