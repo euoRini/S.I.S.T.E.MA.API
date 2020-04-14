@@ -55,11 +55,7 @@ module.exports = {
     if(!vendedor){
       return res.status(400).json({ error: 'Vendedor não encontrado'});
     }
-
-    const acesso = await Acesso.create({
-      id_admin,
-      id_vendedor,
-    });
+    const acesso = await Acesso.create({id_vendedor, id_admin});
 
     return res.json(acesso);
   }
