@@ -127,7 +127,7 @@ Corpo: N/A
 RECARGA:
 1) Criar
 Método: POST
-Rota: https://sistemaifrj.herokuapp.com/users/{id_user}/recarga
+Rota: https://sistemaifrj.herokuapp.com/recarga/{id_users}
 Corpo:
 {
 	"modo_pagto": "{$modo_pagamento}",
