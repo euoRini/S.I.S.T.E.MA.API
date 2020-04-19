@@ -21,6 +21,7 @@ routes.get('/admins/l/:login', AdminsController.findBylogin);
 routes.get('/admins/e/:email', AdminsController.findByemail);
 routes.get('/admins', AdminsController.index);
 routes.post('/admins', AdminsController.store);
+routes.post('/admins/login', AdminsController.login);
 
 routes.get('/recargas', RecargaController.index);
 routes.post('/recargas/:id_cartao', RecargaController.store);
