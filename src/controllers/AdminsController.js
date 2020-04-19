@@ -2,6 +2,13 @@ const Admins = require('../models/Admins');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const authConfig = require('../config/auth.json')
+
+function generateToken(params = {}){
+  return jwt.sign(params, authConfig.secret,{
+    expiresIn: 86400,
+  });
+};
+
 module.exports = {
 
   async deleteByEmail(req,res)
@@ -60,10 +67,9 @@ module.exports = {
     const { nome, login, crpsenha, email } = req.body;
     const senha = await bcrypt.hash(crpsenha, 10);
     const admin = await Admins.create({nome, login, senha, email});
-
-    return res.status(200).send('200');
+    return res.status(200).send({admin, token: generateToken({id: admin.id})});
   },
-
+  
   async login(req, res){
 
     const {login, senha} = req.body;
@@ -75,10 +81,9 @@ module.exports = {
     
     admin.senha = undefined;
 
-    const token = jwt.sign({id: admin.id}, authConfig.secret,{
-      expiresIn: 86400,
+    return res.send({
+      admin, 
+      token: generateToken({id: admin.id})
     });
-
-    return res.send({admin, token});
   }
 };
