@@ -56,8 +56,8 @@ module.exports = {
   },
 
   async store(req, res){
-    const { nome, login, crpsenha, email } = req.body
-    const senha = await bcrypt.hash(crpSenha, 10);
+    const { nome, login, crpsenha, email } = req.body;
+    const senha = await bcrypt.hash(crpsenha, 10);
     const admin = await Admins.create({nome, login, senha, email});
 
     return res.status(200).send('200');
@@ -69,7 +69,7 @@ module.exports = {
 
     if(!admin) return res.status(400).send('400');
 
-    if(!await bcrypt.compare(senha, admin.senha)) return res.status(400).send('400');
+    if(!await bcrypt.compare(senha, admin.senha)) return res.status(400).send('401');
 
     return res.json(admin);
   }
