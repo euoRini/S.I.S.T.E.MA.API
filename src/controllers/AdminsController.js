@@ -56,8 +56,8 @@ module.exports = {
   },
 
   async store(req, res){
-    const { nome, login, senha, email } = req.body
-    const crpSenha = await bcrypt.hash(senha, 10);
+    const { nome, login, crpSenha, email } = req.body
+    const senha = await bcrypt.hash(crpSenha, 10);
     const admin = await Admins.create({nome, login, senha, email});
 
     return res.status(200).send('200').json(admin);
