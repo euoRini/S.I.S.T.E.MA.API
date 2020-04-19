@@ -1,4 +1,5 @@
 const Admins = require('../models/Admins');
+const bcrypt = require('bcryptjs');
 
 module.exports = {
 
@@ -56,7 +57,8 @@ module.exports = {
 
   async store(req, res){
     const { nome, login, senha, email } = req.body
-    const admin = await Admins.create({ nome, login, senha, email});
+    const crpSenha = await bcrypt.hash(senha, 10);
+    const admin = await Admins.create({nome, login, crpSenha, email});
 
     return res.status(200).send('200');
   }
