@@ -60,6 +60,6 @@ module.exports = {
     const crpSenha = await bcrypt.hash(senha, 10);
     const admin = await Admins.create({nome, login, crpSenha, email});
 
-    return res.status(200).send('200');
+    return res.status(200).send('200').json(admin);
   }
 };
