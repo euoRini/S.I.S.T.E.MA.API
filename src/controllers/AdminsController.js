@@ -72,12 +72,13 @@ module.exports = {
     if(!admin) return res.status(400).send('400');
 
     if(!await bcrypt.compare(senha, admin.senha)) return res.status(400).send('401');
+    
     admin.senha = undefined;
 
     const token = jwt.sign({id: admin.id}, authConfig.secret,{
       expiresIn: 86400,
     });
 
-    return res.json(admin, token);
+    return res.send({admin, token});
   }
 };
