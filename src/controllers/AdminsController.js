@@ -45,7 +45,7 @@ module.exports = {
     if(!find){
       return res.status(400).send('400');
     }
-
+    find.senha = undefined;
     return res.status(200).json(find);
   },
 
