@@ -11,7 +11,7 @@ const AcessoController = require ('./controllers/AcessoController');
 const ProdutoController = require ('./controllers/ProdutoController');
 
 const routes = express.Router();
-router.use(authMiddleware);
+routes.use(authMiddleware);
 routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
