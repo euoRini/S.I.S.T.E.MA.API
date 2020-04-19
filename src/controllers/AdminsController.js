@@ -1,6 +1,7 @@
 const Admins = require('../models/Admins');
 const bcrypt = require('bcryptjs');
-
+const jwt = require('jsonwebtoken');
+const authConfig = require('../config/auth.json')
 module.exports = {
 
   async deleteByEmail(req,res)
@@ -34,7 +35,7 @@ module.exports = {
     if(!find){
       return res.status(400).json({ error: 'Email de administrador não encontrado em nosso banco de dados! '});
     }
-
+    find.senha = undefined;
     return res.status(200).json(find);
   },
 
@@ -51,7 +52,7 @@ module.exports = {
 
   async index(req, res){
     const admins = await Admins.findAll();
-
+    admins.senha = undefined;
     return res.json(admins);
   },
 
@@ -71,7 +72,12 @@ module.exports = {
     if(!admin) return res.status(400).send('400');
 
     if(!await bcrypt.compare(senha, admin.senha)) return res.status(400).send('401');
+    admin.senha = undefined;
 
-    return res.json(admin);
+    const token = jwt.sign({id: admin.id}, authConfig.secret,{
+      expiresIn: 86400,
+    });
+
+    return res.json(admin, token);
   }
 };
