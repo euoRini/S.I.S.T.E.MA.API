@@ -1,4 +1,6 @@
 const express = require('express');
+const authMiddleware = require('./middlewares/auth');
+
 const UserController = require('./controllers/UserController');
 const AdminsController = require('./controllers/AdminsController');
 const RecargaController = require ('./controllers/RecargaController');
@@ -9,6 +11,7 @@ const AcessoController = require ('./controllers/AcessoController');
 const ProdutoController = require ('./controllers/ProdutoController');
 
 const routes = express.Router();
+router.use(authMiddleware);
 routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
