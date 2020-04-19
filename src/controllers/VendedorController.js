@@ -28,10 +28,10 @@ module.exports = {
 
   async findByEmail(req,res){
     const { email } = req.params;
-    const find = await Admins.findOne({ where: { email: email } });
+    const find = await Vendedor.findOne({ where: { email: email } });
     
     if(!find){
-      return res.status(400).json({ error: 'email do administrador não encontrado em nosso banco de dados! '});
+      return res.status(400).json({ error: 'Email do vendedor não encontrado em nosso banco de dados! '});
     }
 
     return res.status(200).json(find);
@@ -39,10 +39,10 @@ module.exports = {
 
   async findByMatricula(req,res){
     const { matricula } = req.params;
-    const find = await Admins.findOne({ where: { matricula: matricula } });
+    const find = await Vendedor.findOne({ where: { matricula: matricula } });
     
     if(!find){
-      return res.status(400).json({ error: 'matricula de administrador não encontrado em nosso banco de dados! '});
+      return res.status(400).json({ error: 'Matrícula de vendedor não encontrado em nosso banco de dados! '});
     }
 
     return res.status(200).json(find);

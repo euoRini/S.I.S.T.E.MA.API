@@ -28,5 +28,5 @@ Admins.associate(connection.models);
 Acesso.associate(connection.models);
 Pagamento.associate(connection.models);
 Produto.associate(connection.models);
-User.associate(connection.models)
+User.associate(connection.models);
 module.exports = connection;

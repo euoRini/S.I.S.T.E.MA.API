@@ -30,6 +30,7 @@ module.exports = {
       senha:{
         type: Sequelize.STRING(100),
         allowNull: false,
+        select:false,
       },
 
       created_at: {
@@ -45,6 +46,6 @@ module.exports = {
 },
 
   down: (queryInterface, Sequelize) => {
-      return queryInterface.dropTable('vendedors');
+    return queryInterface.dropTable('vendedors');
   }
 };
