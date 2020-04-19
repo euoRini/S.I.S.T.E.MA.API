@@ -72,6 +72,6 @@ module.exports = {
 
     //if(!await bcrypt.compare(senha, admin.senha)) return res.status(400).send('401');
 
-    return res.send(admin);
+    return res.send({admin});
   }
 };
