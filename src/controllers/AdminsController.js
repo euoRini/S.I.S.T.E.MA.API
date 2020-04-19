@@ -65,7 +65,7 @@ module.exports = {
 
   async login(req, res){
     const {login, senha} = req.body;
-    const admin = Admins.findOne({ login }).select('+senha');
+    const admin = Admins.findOne({ login })//.select('+senha');
 
     if(!admin) return res.status(400).send('400');
 
