@@ -2,6 +2,7 @@ const Admins = require('../models/Admins');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const authConfig = require('../config/auth.json')
+const authMiddleware = require('./middlewares/auth');
 
 
 function generateToken(params = {}){
@@ -9,7 +10,7 @@ function generateToken(params = {}){
     expiresIn: 86400,
   });
 };
-
+routes.use(authMiddleware)
 module.exports = {
   
   async deleteByEmail(req,res)
