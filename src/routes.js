@@ -22,7 +22,7 @@ routes.delete('/admins/e/:email', AdminsController.deleteByEmail);
 routes.delete('/admins/l/:login', AdminsController.deleteByLogin);
 routes.get('/admins/l/:login', AdminsController.findBylogin);
 routes.get('/admins/e/:email', AdminsController.findByemail);
-routes.get('/admins', AdminsController.index);
+routes.get('/admins', AdminsController.index).use(authMiddleware);;
 routes.post('/admins', AdminsController.store);
 routes.post('/admins/login', AdminsController.login);
 
