@@ -9,7 +9,7 @@ function generateToken(params = {}){
     expiresIn: 86400,
   });
 };
-routes.use(authMiddleware);
+
 module.exports = {
   
   async deleteByEmail(req,res)
