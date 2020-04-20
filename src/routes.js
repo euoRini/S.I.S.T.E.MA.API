@@ -12,12 +12,13 @@ const ProdutoController = require ('./controllers/ProdutoController');
 
 const routes = express.Router();
 
+routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
 routes.post('/admins', AdminsController.store);
 routes.post('/admins/login', AdminsController.login);
 
 routes.use(authMiddleware)
 
-routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
+
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
 routes.get('/users/:matricula', UserController.credenciais);
