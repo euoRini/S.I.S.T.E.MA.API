@@ -29,10 +29,10 @@ module.exports = {
     const user = await User.findOne({ where: { matricula: matricula } });
     
     if(!user){
-      return res.status(400).json({ error: 'Matrícula de usuário não encontrado em nosso banco de dados! '});
+      return res.status(400).send('400');
     }
     await user.destroy();
-    return res.status(200).json({error: 'Usuario excluído'});
+    return res.status(200).send('200');
   },
 
   async store(req, res){

@@ -8,10 +8,10 @@ module.exports = {
     const vendedor = await Vendedor.findOne({ where: { email: email } });
     
     if(!vendedor){
-      return res.status(400).json({ error: 'Email do vendedor não encontrado em nosso banco de dados! '});
+      return res.status(400).send('400');
     }
     await vendedor.destroy();
-    return res.status(200).json({error: 'Vendedor excluído'});
+    return res.status(200).send('200');
   },
 
   async deleteByMatricula(req,res)
@@ -20,10 +20,10 @@ module.exports = {
     const vendedor = await Vendedor.findOne({ where: { matricula: matricula } });
     
     if(!vendedor){
-      return res.status(400).json({ error: 'Matrícula de vendedor não encontrado em nosso banco de dados! '});
+      return res.status(400).send('400');
     }
     await vendedor.destroy();
-    return res.status(200).json({error: 'Vendedor excluído'});
+    return res.status(200).send('200');
   },
 
   async findByEmail(req,res){

@@ -30,10 +30,10 @@ module.exports = {
     const produto = await Produto.findOne({ where: { nome: nome } });
     
     if(!produto){
-      return res.status(400).json({ error: 'Produto não encontrado em nosso banco de dados! '});
+      return res.status(400).send('400');
     }
     await produto.destroy();
-    return res.status(200).json({error: 'Produto excluído'});
+    return res.status(200).send('200');
   },
   
 

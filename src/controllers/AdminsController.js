@@ -17,10 +17,10 @@ module.exports = {
     const admin = await Admins.findOne({ where: { email: email } });
     
     if(!admin){
-      return res.status(400).json({ error: 'Email do administrador não encontrado em nosso banco de dados! '});
+      return res.status(400).send('400');
     }
     await admin.destroy();
-    return res.status(200).json({error: 'Administrador excluído'});
+    return res.status(200).send('200');
   },
 
   async deleteByLogin(req,res)
@@ -29,10 +29,10 @@ module.exports = {
     const admin = await Admins.findOne({ where: { login: login } });
     
     if(!admin){
-      return res.status(400).json({ error: 'Login de administrador não encontrado em nosso banco de dados! '});
+      return res.status(400).send('400');
     }
     await admin.destroy();
-    return res.status(200).json({error: 'Administrador excluído'});
+    return res.status(200).send('200');
   },
    
   async findByemail(req,res){
