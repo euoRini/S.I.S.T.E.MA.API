@@ -11,7 +11,7 @@ const AcessoController = require ('./controllers/AcessoController');
 const ProdutoController = require ('./controllers/ProdutoController');
 
 const routes = express.Router();
-
+//.use(authMiddleware)
 routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
@@ -22,7 +22,7 @@ routes.delete('/admins/e/:email', AdminsController.deleteByEmail);
 routes.delete('/admins/l/:login', AdminsController.deleteByLogin);
 routes.get('/admins/l/:login', AdminsController.findBylogin);
 routes.get('/admins/e/:email', AdminsController.findByemail);
-routes.use(authMiddleware).get('/admins', AdminsController.index);
+routes.get('/admins', AdminsController.index);
 routes.post('/admins', AdminsController.store);
 routes.post('/admins/login', AdminsController.login);
 
