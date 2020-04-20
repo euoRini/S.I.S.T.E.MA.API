@@ -81,7 +81,7 @@ module.exports = {
     
     //admin.senha = undefined;
 
-    return res.send({ //token: generateToken({id: admin.id})
-   });
+    return res.status(200).send('guei'//{ token: generateToken({id: admin.id})}
+    );
   }
 };
