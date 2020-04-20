@@ -14,7 +14,7 @@ const routes = express.Router();
 
 routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
 routes.post('/admins', AdminsController.store);
-routes.post('/admins/login', AdminsController.login);
+routes.post('/login', AdminsController.login);
 
 routes.use(authMiddleware)
 
