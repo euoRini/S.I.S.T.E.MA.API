@@ -81,6 +81,6 @@ module.exports = {
     
     admin.senha = undefined;
 
-    return res.status(200).send({token: generateToken({id: admin.id}) });
+    return res.status(200).send({ admin, token: generateToken({id: admin.id}) });
   }
 };
