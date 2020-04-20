@@ -67,7 +67,7 @@ module.exports = {
     const { nome, login, crpsenha, email } = req.body;
     const senha = await bcrypt.hash(crpsenha, 10);
     const admin = await Admins.create({nome, login, senha, email});
-    return res.status(200).send({token: generateToken({id: admin.id})});
+    return res.status(200).send(admin);
   },
   
   async login(req, res){
