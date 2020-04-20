@@ -1,5 +1,5 @@
 const express = require('express');
-const authMiddleware = require('./middlewares/auth');
+//const authMiddleware = require('./middlewares/auth');
 
 const UserController = require('./controllers/UserController');
 const AdminsController = require('./controllers/AdminsController');
@@ -11,9 +11,8 @@ const AcessoController = require ('./controllers/AcessoController');
 const ProdutoController = require ('./controllers/ProdutoController');
 
 const routes = express.Router();
-routes.post('/admins/login', AdminsController.login);
+//routes.use(authMiddleware);
 
-routes.use(authMiddleware);
 routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
@@ -26,7 +25,7 @@ routes.get('/admins/l/:login', AdminsController.findBylogin);
 routes.get('/admins/e/:email', AdminsController.findByemail);
 routes.get('/admins', AdminsController.index);
 routes.post('/admins', AdminsController.store);
-
+routes.post('/admins/login', AdminsController.login);
 
 routes.get('/recargas', RecargaController.index);
 routes.post('/recargas/:id_cartao', RecargaController.store);
