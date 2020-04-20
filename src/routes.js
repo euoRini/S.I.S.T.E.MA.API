@@ -11,7 +11,10 @@ const AcessoController = require ('./controllers/AcessoController');
 const ProdutoController = require ('./controllers/ProdutoController');
 
 const routes = express.Router();
-routes.get('/admins', AdminsController.index);
+
+routes.post('/admins', AdminsController.store);
+routes.post('/admins/login', AdminsController.login);
+
 routes.use(authMiddleware)
 
 routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
@@ -24,9 +27,8 @@ routes.delete('/admins/e/:email', AdminsController.deleteByEmail);
 routes.delete('/admins/l/:login', AdminsController.deleteByLogin);
 routes.get('/admins/l/:login', AdminsController.findBylogin);
 routes.get('/admins/e/:email', AdminsController.findByemail);
+routes.get('/admins', AdminsController.index);
 
-routes.post('/admins', AdminsController.store);
-routes.post('/admins/login', AdminsController.login);
 
 routes.get('/recargas', RecargaController.index);
 routes.post('/recargas/:id_cartao', RecargaController.store);
