@@ -51,13 +51,13 @@ module.exports = {
 
   async store(req, res){
     const { id_vendedor } = req.params;
-    const { id_vendedor,id_admin } = req.body;
-    const vendedor = await Vendedor.findByPk({id_vendedor});
+    const { id_admin } = req.body;
+    const vendedor = await Vendedor.findOne({where:{id:id_vendedor}});
     if(!vendedor){
       return res.status(400).json({ error: 'Vendedor não encontrado'});
     }
-    const matricula = vendedor.matricula;
-    const acesso = await Acesso.create({id_vendedor, matricula, id_admin});
+    const matricula_vendedor = vendedor.matricula;
+    const acesso = await Acesso.create({id_vendedor,matricula_vendedor, id_admin});
 
     return res.json(acesso);
   }
