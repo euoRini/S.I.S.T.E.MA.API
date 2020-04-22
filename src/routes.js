@@ -51,7 +51,7 @@ routes.post('/pagamentos/:id_venda', PagamentoController.store);
 routes.put('/acessos/:id_acesso/', AcessoController.confirm);
 routes.get('/acessos', AcessoController.index);
 routes.get('/acessos/a/:id_admin/', AcessoController.indexAdmin);
-routes.get('/acessos/v/:id_vendedor/', AcessoController.indexVendedor);
+routes.get('/acessos/v/:matricula/', AcessoController.indexVendedor);
 routes.post('/acessos/:id_vendedor/', AcessoController.store);
 
 routes.post('/produtos/:id_venda/', ProdutoController.addProdutosVenda);

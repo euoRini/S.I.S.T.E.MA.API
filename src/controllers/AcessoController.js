@@ -41,8 +41,8 @@ module.exports = {
 
   async indexVendedor(req,res)
   {
-    const { id_vendedor } = req.params;
-    const vendedor = await  Vendedor.findByPk(id_vendedor,{include: {association: 'VENDacessos'} });
+    const { matricula } = req.params;
+    const vendedor = await  Vendedor.findByPk(matricula,{include: {association: 'VENDacessos'} });
     if(!vendedor){
       return res.status(400).json({ error: 'Vendedor não encontrado em nosso banco de dados'});
     }
@@ -51,12 +51,13 @@ module.exports = {
 
   async store(req, res){
     const { id_vendedor } = req.params;
-    const { id_admin } = req.body;
-    const vendedor = await Vendedor.findByPk(id_vendedor);
+    const { id_vendedor,id_admin } = req.body;
+    const vendedor = await Vendedor.findByPk({id_vendedor});
     if(!vendedor){
       return res.status(400).json({ error: 'Vendedor não encontrado'});
     }
-    const acesso = await Acesso.create({id_vendedor, id_admin});
+    const matricula = vendedor.matricula;
+    const acesso = await Acesso.create({id_vendedor, matricula, id_admin});
 
     return res.json(acesso);
   }
