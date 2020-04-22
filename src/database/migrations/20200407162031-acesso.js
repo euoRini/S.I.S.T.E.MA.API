@@ -34,7 +34,7 @@ module.exports = {
       matricula_vendedor: {
         type: Sequelize.STRING(14),
         allowNull: false,
-        unique: true,
+        unique: false,
      },
 
       created_at: {
