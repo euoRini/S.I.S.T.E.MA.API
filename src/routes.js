@@ -16,7 +16,7 @@ routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
 routes.post('/admins', AdminsController.store);
 routes.post('/login', AdminsController.login);
 
-routes.use(authMiddleware);
+//routes.use(authMiddleware);
 
 
 routes.get('/users', UserController.index);
