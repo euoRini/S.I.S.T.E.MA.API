@@ -37,6 +37,10 @@ module.exports = {
         unique: false,
      },
 
+      nome_admin: {
+        type: Sequelize.STRING(50),
+        allowNull: false,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
