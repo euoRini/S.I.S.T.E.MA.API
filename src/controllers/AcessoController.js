@@ -42,8 +42,9 @@ module.exports = {
   async indexVendedor(req,res)
   {
     const { matricula } = req.params;
-    const vendedor = await  Vendedor.findOne({where:{matricula:matricula}},{include: {association: 'VENDacessos'} });
-    if(!vendedor){
+    const vendedores = await Vendedor.findOne({where:{matricula:matricula}});
+    const vendedor = await Vendedor.findByPk(vendedores.id,{include: {association: 'VENDacessos'} })
+    if(!vendedores){
       return res.status(400).json({ error: 'Vendedor não encontrado em nosso banco de dados'});
     }
     return res.json(vendedor);
