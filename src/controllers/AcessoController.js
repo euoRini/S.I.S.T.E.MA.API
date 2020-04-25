@@ -59,14 +59,14 @@ module.exports = {
       }
       const admin = await Admins.findByPk(id_admin);
       if(!admin){
-        return res.status(400).json({ error: 'PIRU'});
+        return res.status(400).json({ error: 'Administrador'});
       }
       const nome_admin = admin.nome;
-      const matricula_vendedor = vendedor.matricula;
+      const nome_vendedor = vendedor.nome;
       const acesso = await Acesso.create({
         id_vendedor,
         id_admin,
-        matricula_vendedor,
+        nome_vendedor,
         nome_admin,
       });
       return res.json(acesso);

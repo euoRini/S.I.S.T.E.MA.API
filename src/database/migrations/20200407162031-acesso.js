@@ -31,15 +31,14 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      matricula_vendedor: {
+      nome_vendedor: {
         type: Sequelize.STRING(14),
-        allowNull:true,
-        unique: false,
+        allowNull:false,
      },
 
       nome_admin: {
         type: Sequelize.STRING(50),
-        allowNull:true,
+        allowNull:false,
       },
       created_at: {
         type: Sequelize.DATE,

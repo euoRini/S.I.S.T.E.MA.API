@@ -18,7 +18,6 @@ routes.post('/systemlogin', AdminsController.login);
 
 //routes.use(authMiddleware);
 
-
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
 routes.get('/users/:matricula', UserController.credenciais);
