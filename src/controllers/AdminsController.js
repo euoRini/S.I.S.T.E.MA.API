@@ -40,7 +40,7 @@ module.exports = {
     const find = await Admins.findOne({ where: { email: email } });
     
     if(!find){
-      return res.status(400).json({ error: 'Email de administrador não encontrado em nosso banco de dados! '});
+      return res.status(400).send('Email de administrador não encontrado em nosso banco de dados! ');
     }
     find.senha = undefined;
     return res.status(200).json(find);
