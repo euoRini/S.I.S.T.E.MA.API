@@ -22,7 +22,7 @@ module.exports = {
       },
 
       id_admin: {
-        allowNull:true,
+        allowNull:false,
         type: Sequelize.INTEGER,
         references: { 
           model: 'admins', 
@@ -33,13 +33,13 @@ module.exports = {
       },
       matricula_vendedor: {
         type: Sequelize.STRING(14),
-        allowNull: false,
+        allowNull:true,
         unique: false,
      },
 
       nome_admin: {
         type: Sequelize.STRING(50),
-        allowNull: false,
+        allowNull:true,
       },
       created_at: {
         type: Sequelize.DATE,

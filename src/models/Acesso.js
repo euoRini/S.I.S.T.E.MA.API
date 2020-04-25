@@ -3,6 +3,8 @@ const { Model, DataTypes } = require('sequelize');
 class Acesso extends Model {
   static init(connection){
     super.init({
+      matricula_vendedor: DataTypes.INTEGER,
+      nome_admin: DataTypes.STRING,
   },{
     sequelize: connection
   })

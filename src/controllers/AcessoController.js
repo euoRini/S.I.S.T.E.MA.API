@@ -52,16 +52,24 @@ module.exports = {
   async store(req, res){
     const { id_vendedor } = req.params;
     const { id_admin } = req.body;
-
-    const vendedor = await Vendedor.findOne({where:{id:id_vendedor}});
-    if(!vendedor){
-      return res.status(400).json({ error: 'Vendedor não encontrado'});
-    }
-    //const admin = await Admins.findOne({where:{id:id_admin}});
-    //const nome_admin = admin.nome;
-    const matricula_vendedor = vendedor.matricula;
-    const acesso = await Acesso.create({id_vendedor,matricula_vendedor, id_admin, nome_admin});
-
-    return res.json(acesso);
+  
+      const vendedor = await Vendedor.findByPk(id_vendedor);
+      if(!vendedor){
+        return res.status(400).json({ error: 'Vendedor não encontrado'});
+      }
+      const admin = await Admins.findByPk(id_admin);
+      if(!admin){
+        return res.status(400).json({ error: 'PIRU'});
+      }
+      const nome_admin = admin.nome;
+      const matricula_vendedor = vendedor.matricula;
+      const acesso = await Acesso.create({
+        id_vendedor,
+        id_admin,
+        matricula_vendedor,
+        nome_admin,
+      });
+      return res.json(acesso);
+    
   }
 };
