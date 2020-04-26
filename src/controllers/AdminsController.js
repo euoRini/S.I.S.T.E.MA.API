@@ -14,34 +14,25 @@ module.exports = {
   async deleteByEmail(req,res)
   {
     const { email } = req.params;
-    const admin = await Admins.findOne({ where: { email: email } });
-    
-    if(!admin){
-      return res.status(400).send('400');
-    }
+    const admin = await Admins.findOne({ where: { email: email } });    
+    if(!admin) return res.status(400).send('Email de administrador não encontrado.');
     await admin.destroy();
-    return res.status(200).send('200');
+    return res.status(200).send('Conta de administrador removida com sucesso!');
   },
 
   async deleteByLogin(req,res)
   {
     const { login } = req.params;
     const admin = await Admins.findOne({ where: { login: login } });
-    
-    if(!admin){
-      return res.status(400).send('400');
-    }
+    if (!admin) return res.status(400).send('Login de administrador não encontrado.');
     await admin.destroy();
-    return res.status(200).send('200');
+    return res.status(200).send('Conta de administrador removida com sucesso!');
   },
    
   async findByemail(req,res){
     const { email } = req.params;
     const find = await Admins.findOne({ where: { email: email } });
-    
-    if(!find){
-      return res.status(400).send('Email de administrador não encontrado em nosso banco de dados! ');
-    }
+    if(!find) return res.status(400).send('Email de administrador não encontrado.');
     find.senha = undefined;
     return res.status(200).json(find);
   },
@@ -49,10 +40,7 @@ module.exports = {
   async findBylogin(req,res){
     const { login } = req.params;
     const find = await Admins.findOne({ where: { login: login } });
-    
-    if(!find){
-      return res.status(400).send('400');
-    }
+    if(!find) return res.status(400).send('Login de administrador não encontrado.');
     find.senha = undefined;
     return res.status(200).json(find);
   },
@@ -67,20 +55,15 @@ module.exports = {
     const { nome, login, crpsenha, email } = req.body;
     const senha = await bcrypt.hash(crpsenha, 10);
     const admin = await Admins.create({nome, login, senha, email});
-    return res.status(200).send('200');
+    return res.status(200).send('Administrador cadastrado com sucesso!');
   },
   
   async login(req, res){
-
     const {login, senha} = req.body;
     const admin = await Admins.findOne({ where: { login: login } });
-
-    if(!admin) return res.status(400).send('400');
-
-    if(!await bcrypt.compare(senha, admin.senha)) return res.status(400).send('401');
-    
+    if(!admin) return res.status(400).send('Login de administrador não encontrado.');
+    if(!await bcrypt.compare(senha, admin.senha)) return res.status(400).send('Login ou senha incorretos');
     admin.senha = undefined;
-
     return res.status(200).send({ admin, token: generateToken({id: admin.id}) });
   }
 };
