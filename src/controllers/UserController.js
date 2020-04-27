@@ -8,8 +8,20 @@ module.exports = {
 
   async credenciais(req,res){
     const { matricula } = req.params;
+    const find = await User.findOne({ where: { matricula: matricula } });
+    if(!cardBmat) return res.status(400).send('Matrícula não encontrada.');
+    const user = await User.findByPk(find.id, {include: { association: 'CrdRec'}});
+    return res.status(200).json(user);
+  },
+  
+  async findRecharge(req,res){
+    const { matricula } = req.params;
     const cardBmat = await User.findOne({ where: { matricula: matricula } }, {include: { association: 'CrdRec'}});
     if(!cardBmat) return res.status(400).send('Matrícula não encontrada.');
+    
+    
+    
+    
     return res.status(200).json(cardBmat);
   },
 

@@ -51,9 +51,7 @@ module.exports = {
   async store(req, res){
     const { matricula, nome, email, crpsenha } = req.body
     const senha = await bcrypt.hash(crpsenha, 10);
-    if (!senha) return res.status(400).send('senha bugada')
     const vendedor = await Vendedor.create({ matricula, nome, email, senha });
-    if (!vendedor) return res.status(400).send('buceta')
     return res.status(200).send('Vendedor cadastrado com sucesso!');
   },
 

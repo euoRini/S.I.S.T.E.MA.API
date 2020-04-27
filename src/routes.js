@@ -21,6 +21,7 @@ routes.post('/login', VendedorController.login);
 
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
+routes.get('/users/r/:matricula', UserController.findRecharge);
 routes.get('/users/:matricula', UserController.credenciais);
 routes.delete('/users/:matricula', UserController.delete);
 
