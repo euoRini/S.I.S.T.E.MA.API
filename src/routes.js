@@ -60,6 +60,6 @@ routes.delete('/produtos/:nome', ProdutoController.deleteByName);
 routes.get('/produtos/:nome', ProdutoController.findByName);
 routes.get('/produtos', ProdutoController.index);
 routes.get('/produtos/:id_venda/', ProdutoController.produtosVenda);
-routes.post('/produto', ProdutoController.store);
+routes.post('/produtos', ProdutoController.store);
 
 module.exports = routes;
