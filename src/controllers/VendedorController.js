@@ -52,7 +52,7 @@ module.exports = {
     const { matricula, nome, email, crpsenha } = req.body
     const senha = await bcrypt.hash(crpsenha, 10);
     const vendedor = await Vendedor.create({ matricula, nome, email, senha });
-    return res.status(200).send('Vendedor cadastrado com sucesso!');
+    return res.status(200).json('Vendedor cadastrado com sucesso!');
   },
 
   async login(req,res){
