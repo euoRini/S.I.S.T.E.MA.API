@@ -15,24 +15,24 @@ module.exports = {
   {
     const { email } = req.params;
     const vendedor = await Vendedor.findOne({ where: { email: email } });
-    if(!vendedor) return res.status(400).send('Vendedor não encontrado.');
+    if(!vendedor) return res.status(400).json('Vendedor não encontrado.');
     await vendedor.destroy();
-    return res.status(200).send('Vendedor removido com sucesso!');
+    return res.status(200).json('Vendedor removido com sucesso!');
   },
 
   async deleteByMatricula(req,res)
   {
     const { matricula } = req.params;
     const vendedor = await Vendedor.findOne({ where: { matricula: matricula } });
-    if(!vendedor) return res.status(400).send('Vendedor não encontrado!.');
+    if(!vendedor) return res.status(400).json('Vendedor não encontrado!.');
     await vendedor.destroy();
-    return res.status(200).send('Vendedor removido com sucesso!');
+    return res.status(200).json('Vendedor removido com sucesso!');
   },
 
   async findByEmail(req,res){
     const { email } = req.params;
     const find = await Vendedor.findOne({ where: { email: email } });
-    if(!find) return res.status(400).send('Vendedor não encontrado.');
+    if(!find) return res.status(400).json('Vendedor não encontrado.');
     return res.status(200).json(find);
   },
 
@@ -58,8 +58,8 @@ module.exports = {
   async login(req,res){
     const {matricula, senha} = req.body;
     const vendedor = await Vendedor.findOne({ where: { matricula: matricula } });
-    if(!vendedor) return res.status(400).send('Matrícula de vendedor não encontrada.');
-    if(!await bcrypt.compare(senha, vendedor.senha)) return res.status(400).send('Senha incorretos');
+    if(!vendedor) return res.status(400).json('Matrícula de vendedor não encontrada.');
+    if(!await bcrypt.compare(senha, vendedor.senha)) return res.status(400).json('Senha incorretos');
     vendedor.senha = undefined;
     return res.status(200).send({ vendedor, token: generateToken({id: vendedor.id}) });
   }

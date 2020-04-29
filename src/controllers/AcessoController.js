@@ -26,7 +26,7 @@ module.exports = {
   {
     const { id_admin } = req.params;
     const admin = await  Admins.findByPk( id_admin, { include: { association: 'ADMacessos'}});
-    if ( !admin ) return res.status( 400 ).send( 'Administrador não encontrado.' );
+    if ( !admin ) return res.status( 400 ).json( 'Administrador não encontrado.' );
     return res.json( admin );
   },
 
@@ -34,7 +34,7 @@ module.exports = {
   {
     const { matricula } = req.params;
     const vendedores = await Vendedor.findOne( { where: { matricula:matricula }});
-    if ( !vendedores ) return res.status( 400 ).send( 'Vendedor não encontrado.' );
+    if ( !vendedores ) return res.status( 400 ).json( 'Vendedor não encontrado.' );
     const vendedor = await Vendedor.findByPk( vendedores.id,{ include: { association: 'VENDacessos' }});
     return res.json( vendedor );
   },
@@ -43,9 +43,9 @@ module.exports = {
     const { id_vendedor } = req.params;
     const { id_admin } = req.body;
     const vendedor = await Vendedor.findByPk(id_vendedor);
-    if ( !vendedor ) return res.status( 400 ).send( 'Vendedor não encontrado.' );
+    if ( !vendedor ) return res.status( 400 ).json( 'Vendedor não encontrado.' );
     const admin = await Admins.findByPk(id_admin);
-    if ( !admin ) return res.status( 400 ).send( 'Administrador não encontrado.' );      
+    if ( !admin ) return res.status( 400 ).json( 'Administrador não encontrado.' );      
     const nome_admin = admin.nome;
     const nome_vendedor = vendedor.nome;
     const acesso = await Acesso.create({ id_vendedor, id_admin, nome_vendedor, nome_admin });

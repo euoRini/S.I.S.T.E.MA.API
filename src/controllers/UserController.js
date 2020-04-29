@@ -17,7 +17,7 @@ module.exports = {
   async credenciais(req,res){
     const { matricula } = req.params;
     const find = await User.findOne({ where: { matricula: matricula } });
-    if(!find) return res.status(400).send('Matrícula não encontrada.');
+    if(!find) return res.status(400).json('Matrícula não encontrada.');
     const user = await User.findByPk( find.id, {include: { association: 'CrdRec'}});
     return res.status(200).json(user);
   },
@@ -25,7 +25,7 @@ module.exports = {
   async findRecharge(req,res){
     const { matricula } = req.params;
     const find = await User.findOne({ where: { matricula: matricula } });
-    if(!find) return res.status(400).send('Matrícula não encontrada.');
+    if(!find) return res.status(400).json('Matrícula não encontrada.');
     const user = await User.findByPk( find.id, {include: { association: 'CrdRec'}});
     const Recargas = user.CrdRec;
     const validos = new Array();
@@ -33,7 +33,7 @@ module.exports = {
     for(var i = 0, len = Recargas.length; i<len; i++){
       const data = Recargas[i].createdAt.toString();
       const parts = data.split(' ');
-      if(!parts.length === 10) return res.status(401).send('Dividi errado');
+      if(!parts.length === 10) return res.status(401).json('Data inválida');
       const [ D, M, DN, A, H, Hrr, b, c, e, f] = parts;
       const dataC = M.concat('/',DN,'/',A);
       if( dataC === dataA ) validos.push(Recargas[i]);
@@ -60,7 +60,7 @@ module.exports = {
   {
     const { matricula } = req.params;
     const user = await User.findOne({ where: { matricula: matricula } });
-    if(!user) return res.status(400).send('Usuário não encontrado.');
+    if(!user) return res.status(400).json('Usuário não encontrado.');
     await user.destroy();
     return res.status(200).json('Usuário removido com sucesso!');
   },

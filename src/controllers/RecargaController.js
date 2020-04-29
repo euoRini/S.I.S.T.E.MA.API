@@ -13,7 +13,7 @@ module.exports = {
     const { modo_pagto, valor_recarga} = req.body;
     const user = await User.findByPk(id_cartao);
 
-    if(!user) return res.status(400).send('Cartão não cadastrado');
+    if(!user) return res.status(400).json('Cartão não cadastrado');
 
     const recarga = await Recarga.create({
       modo_pagto,
