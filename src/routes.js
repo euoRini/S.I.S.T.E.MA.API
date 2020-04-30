@@ -61,12 +61,12 @@ routes.post('/pagamentos/:id_venda', PagamentoController.store);//**?**?**?**
 
 routes.put('/acessos/:id_acesso/', AcessoController.confirm);
 routes.get('/acessos', AcessoController.index);
-routes.get('/acessos/solicitacoes', AcessoController.notConfirmed);
-routes.get('/acessos/permitidos', AcessoController.Confirmed);
+routes.get('/acessos/requests', AcessoController.notConfirmed);
+routes.get('/acessos/allow', AcessoController.Confirmed);
 routes.get('/acessos/a/:login/', AcessoController.indexAdmin);
 routes.get('/acessos/v/:matricula/', AcessoController.indexVendedor);
 routes.post('/acessos/:matricula', AcessoController.store);
-routes.get('/acessos/fd/:data/', AcessoController.findByDate);
+routes.get('/acessos/date/:data/', AcessoController.findByDate);
 
 ////////////////////////////////////////////////////////////////
 
