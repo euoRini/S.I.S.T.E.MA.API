@@ -9,11 +9,11 @@ module.exports = {
   },
 
   async store(req, res){
-    const { id_cartao } = req.params;
+    const { matricula } = req.params;
     const { modo_pagto, valor_recarga} = req.body;
-    const user = await User.findByPk(id_cartao);
-
-    if(!user) return res.status(400).json('Cartão não cadastrado');
+    const findUser = await User.findOne({where:{matricula:matricula}});
+    const id_cartao = findUser.id;
+    if(!findUser) return res.status(400).json('Cartão não cadastrado');
 
     const recarga = await Recarga.create({
       modo_pagto,

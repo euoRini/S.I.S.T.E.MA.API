@@ -9,10 +9,11 @@ module.exports = {
   },
 
   async store(req, res){
-    const { id_vendedor } = req.params;
+    const { matricula } = req.params;
     const { total_venda } = req.body;
-    const vendedor = await Vendedor.findByPk(id_vendedor);
-    if(!vendedor) return res.status(400).json('Vendedor não encontrado');
+    const findVend = await Vendedor.findOne({where:{matricula:matricula}});
+    if(!findVend) return res.status(400).json('Vendedor não encontrado');
+    const id_vendedor = findVend.id;
     const venda = await Venda.create({ id_vendedor, total_venda });
     return res.status(200).json(venda);
   }

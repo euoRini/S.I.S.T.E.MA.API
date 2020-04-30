@@ -38,7 +38,6 @@ module.exports = {
       const dataC = M.concat('/',DN,'/',A);
       if( dataC === dataA ) validos.push(Recargas[i]);
     }
-    
     var total = 0;
     for(i = 0,len = validos.length;i<len;i++){
       const str = validos[i].modo_pagto;
@@ -50,6 +49,13 @@ module.exports = {
   },
 
   async update(req,res)
+  {
+    const {matricula} = req.params;
+    const user = await User.update({ nome : req.body.nome, email: req.body.email},{where:{matricula:matricula}});
+    return res.status(200).json(user);
+  },
+
+  async recarga(req,res)
   {
     const {matricula} = req.params;
     const recarga = await User.update({ saldo : req.body.saldo },{where:{matricula:matricula}});
