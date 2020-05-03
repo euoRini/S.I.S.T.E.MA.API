@@ -14,7 +14,7 @@ const routes = express.Router();
 
 routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
 ////////////////////////////////////////////////////////////////
-routes.post('/admins', AdminsController.store);
+
 ////////////////////////////////////////////////////////////////
 routes.post('/systemlogin', AdminsController.login);
 ////////////////////////////////////////////////////////////////
@@ -29,6 +29,7 @@ routes.get('/users/r/:matricula', UserController.findRecharge);
 routes.get('/users/:matricula', UserController.credenciais);
 routes.delete('/users/:matricula', UserController.delete);
 ////////////////////////////////////////////////////////////////
+routes.post('/admins', AdminsController.store);
 routes.put('/admins/:login', AdminsController.update);
 routes.delete('/admins/e/:email', AdminsController.deleteByEmail);
 routes.delete('/admins/l/:login', AdminsController.deleteByLogin);
