@@ -1,6 +1,6 @@
 module.exports = {
   dialect: 'mysql',
-  host: 'files.000webhost.com',
+  host: 'databases-auth.000webhost.com',
   username: 'id14274215_root',
   password: '<rP!%1_fN5EYc$h8',
   database: 'id14274215_sistematcc',
