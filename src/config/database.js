@@ -1,9 +1,9 @@
 module.exports = {
   dialect: 'mysql',
-  host: 'sql10.freemysqlhosting.net',
-  username: 'sql10352688',
-  password: 'hkiMhDjG7l',
-  database: 'sql10352688',
+  host: '	files.000webhost.com',
+  username: 'id14274215_root',
+  password: '<rP!%1_fN5EYc$h8',
+  database: 'id14274215_sistematcc',
   define: {
     timestamps: true,
     underscored: true,
