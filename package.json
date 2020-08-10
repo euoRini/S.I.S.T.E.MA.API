@@ -17,5 +17,7 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
-  }
+  },
+  "repository": "https://github.com/euoRini/S.I.S.T.E.MA.API.git",
+  "author": "euoRini <61603802+euoRini@users.noreply.github.com>"
 }
