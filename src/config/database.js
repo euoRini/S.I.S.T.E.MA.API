@@ -1,9 +1,9 @@
 module.exports = {
   dialect: 'mysql',
-  host: 'remotemysql.com',
-  username: 'UxvPrla7rY',
-  password: 'Qf5ni4XuKM',
-  database: 'UxvPrla7rY',
+  host: 'databases.000webhost.com',
+  username: 'id16129726_sistema_adm',
+  password: 'km**1a!Q(1o3xYKK5#BX',
+  database: 'id16129726_sistema',
   define: {
     timestamps: true,
     underscored: true,
