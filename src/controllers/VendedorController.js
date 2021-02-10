@@ -66,10 +66,10 @@ module.exports = {
 
   async login(req,res){
     const {matricula, senha} = req.body;
-    const vendedor = await Vendedor.findOne({ where: { matricula: matricula } });
-    if(!vendedor) return res.status(400).json('Matrícula de vendedor não encontrada.');
-    if(!await bcrypt.compare(senha, vendedor.senha)) return res.status(400).json('Senha incorretos');
-    vendedor.senha = undefined;
-    return res.status(200).send({ vendedor, token: generateToken({id: vendedor.id}) });
+    const user = await Vendedor.findOne({ where: { matricula: matricula } });
+    if(!user) return res.status(400).json('Matrícula de vendedor não encontrada.');
+    if(!await bcrypt.compare(senha, user.senha)) return res.status(400).json('Senha incorretos');
+    user.senha = undefined;
+    return res.status(200).send({ user, token: generateToken({id: user.id}) });
   }
 };
