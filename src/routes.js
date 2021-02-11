@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const authMiddleware = require('./middlewares/auth');
 
 const UserController = require('./controllers/UserController');
@@ -21,6 +22,7 @@ routes.post('/systemlogin', AdminsController.login);
 routes.post('/login', VendedorController.login);
 ////////////////////////////////////////////////////////////////
 // routes.use(authMiddleware);
+routes.use(cors());
 ////////////////////////////////////////////////////////////////
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
