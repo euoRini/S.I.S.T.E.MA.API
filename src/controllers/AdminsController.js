@@ -63,7 +63,7 @@ module.exports = {
     const {login} = req.params;
     const crpsenha = req.body.crpsenha;
     const senha = await bcrypt.hash(crpsenha, 10);
-    const adm = await User.update({ nome : req.body.nome, login: req.body.login, email: req.body.email, senha:senha},{where:{login:login}});
+    const adm = await Admins.update({ nome : req.body.nome, login: req.body.login, email: req.body.email, senha:senha},{where:{login:login}});
     return res.status(200).json(adm);
   },
   
