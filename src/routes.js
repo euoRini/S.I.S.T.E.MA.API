@@ -12,7 +12,7 @@ const AcessoController = require ('./controllers/AcessoController');
 const ProdutoController = require ('./controllers/ProdutoController');
 
 const routes = express.Router();
-
+routes.use(cors());
 routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
 ////////////////////////////////////////////////////////////////
 
@@ -22,7 +22,7 @@ routes.post('/systemlogin', AdminsController.login);
 routes.post('/login', VendedorController.login);
 ////////////////////////////////////////////////////////////////
 // routes.use(authMiddleware);
-routes.use(cors());
+
 ////////////////////////////////////////////////////////////////
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
