@@ -28,19 +28,11 @@ module.exports = {
     await admin.destroy();
     return res.status(200).json('Conta de administrador removida com sucesso!');
   },
-   
-  async findByemail(req,res){
-    const { email } = req.params;
-    const find = await Admins.findOne({ where: { email: email } });
-    if(!find) return res.status(400).json('Email de administrador não encontrado.');
-    find.senha = undefined;
-    return res.status(200).json(find);
-  },
 
-  async findBylogin(req,res){
-    const { login } = req.params;
-    const find = await Admins.findOne({ where: { login: login } });
-    if(!find) return res.status(400).json('Login de administrador não encontrado.');
+  async findById(req,res){
+    const { id } = req.params;
+    const find = await Admins.findOne({ where: { id: id } });
+    if(!find) return res.status(400).json('Administrador não encontrado.');
     find.senha = undefined;
     return res.status(200).json(find);
   },
@@ -63,10 +55,10 @@ module.exports = {
     const {login} = req.params;
     const crpsenha = req.body.crpsenha;
     const senha = await bcrypt.hash(crpsenha, 10);
-    const adm = await User.update({ nome : req.body.nome, login: req.body.login, email: req.body.email, senha:senha},{where:{login:login}});
+    const adm = await Admins.update({ nome : req.body.nome, login: req.body.login, email: req.body.email, senha:senha},{where:{login:login}});
     return res.status(200).json(adm);
   },
-  
+
   async login(req, res){
     const {login, senha} = req.body;
     const admin = await Admins.findOne({ where: { login: login } });

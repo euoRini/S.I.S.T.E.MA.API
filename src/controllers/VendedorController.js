@@ -29,16 +29,9 @@ module.exports = {
     return res.status(200).json('Vendedor removido com sucesso!');
   },
 
-  async findByEmail(req,res){
-    const { email } = req.params;
-    const find = await Vendedor.findOne({ where: { email: email } });
-    if(!find) return res.status(400).json('Vendedor não encontrado.');
-    return res.status(200).json(find);
-  },
-
-  async findByMatricula(req,res){
-    const { matricula } = req.params;
-    const find = await Vendedor.findOne({ where: { matricula: matricula } });
+  async findById(req,res){
+    const { id } = req.params;
+    const find = await Vendedor.findOne({ where: { id: id } });
     if(!find) return res.status(400).json('Vendedor não encontrado.');
     return res.status(200).json(find);
   },

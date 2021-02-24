@@ -27,9 +27,9 @@ module.exports = {
     return res.status(200).json('Produto removido do catálogo com sucesso!');
   },
   
-  async findByName(req,res){
-    const { nome } = req.params;
-    const find = await Admins.findOne({ where: { nome: nome } });  
+  async findById(req,res){
+    const { id } = req.params;
+    const find = await Admins.findOne({ where: { id: id } });  
     if(!find) return res.status(400).json('Produto não encontrado.');
     return res.status(200).json(find);
   },
