@@ -13,7 +13,6 @@ const Vendedor = require('../models/Vendedor');
 
 const connection = new Sequelize(dbConfig);
 
-Depertamento.init(connection);
 User.init(connection);
 Acesso.init(connection);
 Pagamento.init(connection);
@@ -22,8 +21,8 @@ Produto.init(connection);
 Recarga.init(connection);
 Venda.init(connection);
 Vendedor.init(connection);
+Depertamento.init(connection);
 
-Depertamento.associate(connection.models);
 Recarga.associate(connection.models);
 Venda.associate(connection.models);
 Vendedor.associate(connection.models);
@@ -32,4 +31,5 @@ Acesso.associate(connection.models);
 Pagamento.associate(connection.models);
 Produto.associate(connection.models);
 User.associate(connection.models);
+Depertamento.associate(connection.models);
 module.exports = connection;
