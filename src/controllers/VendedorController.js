@@ -29,9 +29,9 @@ module.exports = {
     return res.status(200).json('Vendedor removido com sucesso!');
   },
 
-  async findById(req,res){
-    const { id } = req.params;
-    const find = await Vendedor.findOne({ where: { id: id } });
+  async findByMat(req,res){
+    const { matricula } = req.params;
+    const find = await Vendedor.findOne({ where: { matricula: matricula } });
     if(!find) return res.status(400).json('Vendedor não encontrado.');
     return res.status(200).json(find);
   },

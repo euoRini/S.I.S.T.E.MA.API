@@ -10,6 +10,16 @@ module.exports = {
         autoIncrement: true,
       },
 
+      id_depto: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'departamento',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
+
       matricula:{
         unique: true,
         type: Sequelize.STRING(50),

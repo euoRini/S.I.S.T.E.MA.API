@@ -71,9 +71,9 @@ module.exports = {
     return res.status(200).json('Usuário removido com sucesso!');
   },
 
-  async findById(req,res){
-    const { id } = req.params;
-    const find = await User.findOne({ where: { id: id } });
+  async findByMat(req,res){
+    const { matricula } = req.params;
+    const find = await User.findOne({ where: { matricula: matricula } });
     if(!find) return res.status(400).json('Usuário não encontrado.');
     find.senha = undefined;
     return res.status(200).json(find);

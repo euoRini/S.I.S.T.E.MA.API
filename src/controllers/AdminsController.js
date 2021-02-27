@@ -29,9 +29,9 @@ module.exports = {
     return res.status(200).json('Conta de administrador removida com sucesso!');
   },
 
-  async findById(req,res){
-    const { id } = req.params;
-    const find = await Admins.findOne({ where: { id: id } });
+  async findByLogin(req,res){
+    const { login } = req.params;
+    const find = await Admins.findOne({ where: { login: login } });
     if(!find) return res.status(400).json('Administrador não encontrado.');
     find.senha = undefined;
     return res.status(200).json(find);
