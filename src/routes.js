@@ -34,7 +34,7 @@ routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
 routes.put('/users/:matricula', UserController.update);
 routes.get('/users/r/:matricula', UserController.findRecharge);
-routes.get('/users/f/:id', UserController.findByMat);
+routes.get('/users/f/:matricula', UserController.findByMat);
 routes.get('/users/:matricula', UserController.credenciais);
 routes.delete('/users/:matricula', UserController.delete);
 ////////////////////////////////////////////////////////////////
@@ -42,7 +42,7 @@ routes.post('/admins', AdminsController.store);
 routes.put('/admins/:login', AdminsController.update);
 routes.delete('/admins/e/:email', AdminsController.deleteByEmail);
 routes.delete('/admins/l/:login', AdminsController.deleteByLogin);
-routes.get('/admins/f/:id', AdminsController.findByLogin);
+routes.get('/admins/f/:login', AdminsController.findByLogin);
 routes.get('/admins', AdminsController.index);
 ////////////////////////////////////////////////////////////////
 
@@ -53,7 +53,7 @@ routes.put('/recargas/:matricula', UserController.update);
 
 routes.delete('/vendedores/m/:matricula', VendedorController.deleteByMatricula);
 routes.delete('/vendedores/e/:email', VendedorController.deleteByEmail);
-routes.get('/vendedores/f/:id', VendedorController.findByMat);
+routes.get('/vendedores/f/:matricula', VendedorController.findByMat);
 routes.get('/vendedores', VendedorController.index);
 routes.post('/vendedores', VendedorController.store);
 routes.put('/vendedores', VendedorController.update);
@@ -80,7 +80,7 @@ routes.get('/acessos/date/:data/', AcessoController.findByDate);
 
 routes.post('/produtos/:id_venda/', ProdutoController.addProdutosVenda); //**?**?**?**
 routes.delete('/produtos/:nome', ProdutoController.deleteByName);
-routes.get('/produtos/f/:id', ProdutoController.findByName);
+routes.get('/produtos/f/:nome', ProdutoController.findByName);
 routes.get('/produtos', ProdutoController.index);
 routes.get('/produtos/:id_venda/', ProdutoController.produtosVenda);
 routes.post('/produtos', ProdutoController.store);
