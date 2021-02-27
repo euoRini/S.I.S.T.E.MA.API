@@ -4,6 +4,7 @@ const dbConfig = require('../config/database');
 const User = require('../models/User');
 const Acesso = require('../models/Acesso');
 const Admins = require('../models/Admins');
+const Depertamento = require('../models/Departamento');
 const Pagamento = require('../models/Pagamento');
 const Produto = require('../models/Produto');
 const Recarga = require('../models/Recarga');
@@ -12,6 +13,7 @@ const Vendedor = require('../models/Vendedor');
 
 const connection = new Sequelize(dbConfig);
 
+Depertamento.init(connection);
 User.init(connection);
 Acesso.init(connection);
 Pagamento.init(connection);
@@ -21,6 +23,7 @@ Recarga.init(connection);
 Venda.init(connection);
 Vendedor.init(connection);
 
+Depertamento.associate(connection.models);
 Recarga.associate(connection.models);
 Venda.associate(connection.models);
 Vendedor.associate(connection.models);

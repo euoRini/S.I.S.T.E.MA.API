@@ -9,11 +9,11 @@ class Vendedor extends Model {
         senha: DataTypes.STRING,
     },  {
             sequelize: connection   
-        })
+    })
     }
     static associate(models){
         this.hasMany(models.Acesso, {foreignKey: 'id_vendedor', as: 'VENDacessos'});
-        this.belongsTo(models.Departamento, {foreignKey:'id_depto', as: 'VENDEPTO'})
+        this.belongsTo(models.Departamento, {foreignKey:'id_depto', as:'VENDEPTO'})
     }
 }
 

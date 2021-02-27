@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 class Departamento extends Model {
     static init(connection) {
-      super.init({
-        nome: DataTypes.STRING,
-        categoria: DataTypes.STRING,
+        super.init({
+            nome: DataTypes.STRING,
+            categoria: DataTypes.STRING,
     },  {
             sequelize: connection   
         })
