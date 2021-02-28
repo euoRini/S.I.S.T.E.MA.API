@@ -13,7 +13,7 @@ class Vendedor extends Model {
     }
     
     static associate(models){
-        this.hasOne(models.Acesso)
+        this.hasOne(models.Acesso, {foreignKey: 'id_vendedor', as: 'VENDacessos'})
         this.belongsTo(models.Departamento, {foreignKey:'id_depto', as:'VENDEPTO'})
     }
 }
