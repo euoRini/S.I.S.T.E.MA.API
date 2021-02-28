@@ -45,7 +45,7 @@ module.exports = {
 
   async store(req, res){
     const {matricula} = req.params;
-    const {login } = req.body;
+    const { login } = req.body;
     const findAdm = await Admins.findOne({where:{login:login}});
     if(!findAdm){
        var id_admin = null;

@@ -11,9 +11,10 @@ class Vendedor extends Model {
             sequelize: connection   
     })
     }
+    
     static associate(models){
-        this.belongsTo(models.Departamento, {foreignKey:'id_depto', as:'VENDEPTO'})
         this.hasMany(models.Acesso, {foreignKey: 'id_vendedor', as: 'VENDacessos'});
+        this.belongsTo(models.Departamento, {foreignKey:'id_depto', as:'VENDEPTO'})
     }
 }
 

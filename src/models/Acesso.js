@@ -10,8 +10,8 @@ class Acesso extends Model {
   })
   }
   static associate(models){
+    this.belongsTo(models.Vendedor, {foreignKey:'id_vendedor', as:'vendedor'});
     this.belongsTo(models.Admins, {foreignKey:'id_admin', as:'admin'});
-    this.belongsTo(models.Vendedor, {foreignKey:'id_vendedor', as:'VENDacessos'});
   }
 }
 
