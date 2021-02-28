@@ -8,7 +8,7 @@ module.exports = {
   },
   async store(req, res){
     const { nome, categoria } = req.body;
-    const depto = await Admins.create({nome, categoria});
+    const depto = await Departamento.create({nome, categoria});
     return res.status(200).json('Departamento cadastrado com sucesso!');
   },
 };
