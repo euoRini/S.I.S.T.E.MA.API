@@ -16,13 +16,7 @@ const ProdutoController = require ('./controllers/ProdutoController');
 const routes = express.Router();
 routes.use(cors());
 routes.get('/',(req,res)=>{ res.send('Sistema  em funcionamento...'); });
-
-////////////////////////////////////////////////////////////////
-
 routes.post('/systemlogin', AdminsController.login);
-
-////////////////////////////////////////////////////////////////
-
 routes.post('/login', VendedorController.login);
 
 ////////////////////////////////////////////////////////////////
