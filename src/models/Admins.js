@@ -12,7 +12,7 @@ class Admins extends Model {
         })
     }
     static associate(models) {
-        this.hasMany(models.Acesso, {foreignKey: 'id_admin', as: 'ADMacessos'});
+        this.belongsToMany(models.Acesso, {foreignKey: 'id_admin', as: 'ADMacessos'});
     }
 }
 
