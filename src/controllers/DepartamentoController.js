@@ -1,4 +1,4 @@
-const Departamento = require('../models/Departamento');
+const Departamento = require('../models/departamento');
 
 module.exports = {
   async index(req,res)
