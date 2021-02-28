@@ -10,7 +10,7 @@ class Departamento extends Model {
         })
     }
     static associate(models){
-        this.hasMany(models.Vendedor, { foreignKey: 'id_vendedor', as: 'vendedor'});
+        // this.hasMany(models.Vendedor, { foreignKey: 'id_vendedor', as: 'vendedor'});
     }
 }
 
