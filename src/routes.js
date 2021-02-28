@@ -10,6 +10,7 @@ const VendaController = require ('./controllers/VendaController');
 const PagamentoController = require ('./controllers/PagamentoController');
 const AcessoController = require ('./controllers/AcessoController');
 const ProdutoController = require ('./controllers/ProdutoController');
+const DepartamentoController = require('./controllers/DepartamentoController');
 
 ////////////////////////////////////////////////////////////////
 
@@ -51,6 +52,10 @@ routes.get('/vendedores/f/:matricula', VendedorController.findByMat);
 routes.get('/vendedores', VendedorController.index);
 routes.post('/vendedores', VendedorController.store);
 routes.put('/vendedores', VendedorController.update);
+////////////////////////////////////////////////////////////////
+
+routes.post('/departamento', DepartamentoController.store)
+
 ////////////////////////////////////////////////////////////////
 
 routes.get('/vendas', VendaController.index);
