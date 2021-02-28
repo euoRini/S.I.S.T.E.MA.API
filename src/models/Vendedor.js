@@ -12,7 +12,7 @@ class Vendedor extends Model {
     })
     }
     static associate(models){
-        this.hasMany(models.Acesso, {foreignKey: 'id_vendedor', as: 'VENDacessos'});
+        // this.hasMany(models.Acesso, {foreignKey: 'id_vendedor', as: 'VENDacessos'});
         this.belongsTo(models.Departamento, {foreignKey:'id_depto', as:'VENDEPTO'})
     }
 }
