@@ -51,7 +51,7 @@ module.exports = {
   async update(req,res)
   {
     const {matricula} = req.params;
-    const user = await User.update({ nome : req.body.nome, email: req.body.email},{where:{matricula:matricula}});
+    const user = await User.update({ nome : req.body.nome, email: req.body.email, matricula : req.body.matricula },{where:{matricula:matricula}});
     return res.status(200).json(user);
   },
 
