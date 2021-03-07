@@ -54,7 +54,11 @@ routes.post('/vendedores', VendedorController.store);
 routes.put('/vendedores', VendedorController.update);
 ////////////////////////////////////////////////////////////////
 
+routes.get('/departamento/', DepartamentoController.index);
+routes.get('/departamento/:nome', DepartamentoController.find);
 routes.post('/departamento', DepartamentoController.store)
+routes.put('/departamento/:nome', DepartamentoController.update);
+routes.delete('/departamento/:nome', DepartamentoController.delete);
 
 ////////////////////////////////////////////////////////////////
 
@@ -77,6 +81,7 @@ routes.get('/acessos/date/:data/', AcessoController.findByDate);
 
 ////////////////////////////////////////////////////////////////
 
+routes.put('/produtos/:nome', ProdutoController.update);
 routes.post('/produtos/:id_venda/', ProdutoController.addProdutosVenda); //**?**?**?**
 routes.delete('/produtos/:nome', ProdutoController.deleteByName);
 routes.get('/produtos/f/:nome', ProdutoController.findByName);

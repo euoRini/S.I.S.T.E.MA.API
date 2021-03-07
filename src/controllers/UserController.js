@@ -51,7 +51,12 @@ module.exports = {
   async update(req,res)
   {
     const {matricula} = req.params;
-    const user = await User.update({ nome : req.body.nome, email: req.body.email},{where:{matricula:matricula}});
+    const user = await User.update({
+      nome : req.body.nome,
+      email: req.body.email
+    },{ 
+      where:{matricula:matricula}
+    });
     return res.status(200).json(user);
   },
 
@@ -66,9 +71,9 @@ module.exports = {
   {
     const { matricula } = req.params;
     const user = await User.findOne({ where: { matricula: matricula } });
-    if(!user) return res.status(400).json('Usuário não encontrado.');
+    if(!user) return res.status(400).json( 'Usuário não encontrado.' );
     await user.destroy();
-    return res.status(200).json('Usuário removido com sucesso!');
+    return res.status(200).json( 'Usuário removido com sucesso!' );
   },
 
   async findByMat(req,res){
@@ -81,7 +86,12 @@ module.exports = {
 
   async store(req, res){
     const { matricula, nome, email, saldo } = req.body
-    const user = await User.create({ matricula, nome, email, saldo });
+    const user = await User.create({ 
+      matricula,
+      nome,
+      email,
+      saldo
+    });
     return res.status(200).json('Usuário cadastrado com sucesso!');
   }
 };

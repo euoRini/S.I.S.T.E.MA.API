@@ -41,8 +41,24 @@ module.exports = {
 
   async produtosVenda(req, res){
     const {id_venda} = req.params;
-    const venda = await Venda.findByPk(id_venda, { include: {association: 'produtos'}})
+    const venda = await Venda.findByPk(id_venda, {
+      include: {association: 'produtos'}
+    })
     return res.json(venda);
+  },
+
+  async update(req,res)
+  {
+    const {nome} = req.params;
+    const prod = await Produto.update({
+      nome : req.body.nome,
+      preco: req.body.preco,
+      estoque: req.body.estoque,
+      categoria: req.body.categoria
+    }, {
+      where:{nome:nome}
+    });
+    return res.status(200).json(prod);
   },
 
   async store(req,res){
