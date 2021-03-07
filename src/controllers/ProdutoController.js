@@ -29,7 +29,7 @@ module.exports = {
   
   async findByName(req,res){
     const { nome } = req.params;
-    const find = await Admins.findOne({ where: { nome: nome } });  
+    const find = await Produto.findOne({ where: { nome: nome } });  
     if(!find) return res.status(400).json('Produto não encontrado.');
     return res.status(200).json(find);
   },
