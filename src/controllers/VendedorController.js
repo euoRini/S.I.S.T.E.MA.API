@@ -53,7 +53,7 @@ module.exports = {
     const {matricula} = req.params;
     const crpsenha = req.body.crpsenha;
     const senha = await bcrypt.hash(crpsenha, 10);
-    const vendedor = await User.update({ nome : req.body.nome, email: req.body.email, senha:senha},{where:{matricula:matricula}});
+    const vendedor = await User.update({ matricula: req.body.matricula, nome : req.body.nome, email: req.body.email, senha:senha},{where:{matricula:matricula}});
     return res.status(200).json(vendedor);
   },
 
