@@ -43,7 +43,7 @@ routes.get('/admins', AdminsController.index);
 
 routes.get('/recargas', RecargaController.index);
 routes.post('/recargas/:matricula', RecargaController.store); //**?**?**?**
-routes.put('/recargas/:matricula', UserController.update);
+routes.put('/recargas/:matricula', UserController.recarga);
 ////////////////////////////////////////////////////////////////
 
 routes.delete('/vendedores/m/:matricula', VendedorController.deleteByMatricula);
