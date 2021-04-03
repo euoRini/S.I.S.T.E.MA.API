@@ -17,6 +17,15 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false, 
         },
+        id_admin:{
+          type: Sequelize.INTEGER,
+          references: {
+            model: 'admins',
+            key: 'id',
+          },
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+        },
         id_cartao: {
           type: Sequelize.INTEGER,
           references: {
@@ -25,7 +34,6 @@ module.exports = {
           },
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE',
-
         },
         created_at: {
           type: Sequelize.DATE,

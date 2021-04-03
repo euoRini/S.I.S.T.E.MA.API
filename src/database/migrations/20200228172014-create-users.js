@@ -24,7 +24,7 @@ module.exports = {
           unique: true,
         },
         saldo: {
-          type: Sequelize.INTEGER(10),
+          type: Sequelize.INTEGER,
           allowNull: false,          
         },
         created_at: {

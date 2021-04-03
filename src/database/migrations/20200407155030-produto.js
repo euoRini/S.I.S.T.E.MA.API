@@ -12,9 +12,10 @@ module.exports = {
       nome: {
         type: Sequelize.STRING(50),
         allowNull: false,
+        unique: true
       },
       preco: {
-        type: Sequelize.DECIMAL,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       estoque: {
