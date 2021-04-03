@@ -92,6 +92,7 @@ module.exports = {
       email,
       saldo
     });
-    return res.status(200).json('Usuário cadastrado com sucesso!');
+    if (user) return res.status(200).json('Usuário cadastrado com sucesso!');
+    return res.status(400).json('Erro de cadastro!');
   }
 };

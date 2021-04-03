@@ -44,7 +44,7 @@ routes.get('/admins', AdminsController.index);
 
 routes.get('/recargas', RecargaController.index);
 routes.post('/recargas/:matricula', RecargaController.store); //**?**?**?**
-routes.put('/recargas/:matricula', UserController.update);
+routes.put('/recargas/:matricula', UserController.recarga);
 ////////////////////////////////////////////////////////////////
 
 routes.delete('/vendedores/m/:matricula', VendedorController.deleteByMatricula);
@@ -52,7 +52,7 @@ routes.delete('/vendedores/e/:email', VendedorController.deleteByEmail);
 routes.get('/vendedores/f/:matricula', VendedorController.findByMat);
 routes.get('/vendedores', VendedorController.index);
 routes.post('/vendedores', VendedorController.store);
-routes.put('/vendedores', VendedorController.update);
+routes.put('/vendedores/:matricula', VendedorController.update);
 ////////////////////////////////////////////////////////////////
 
 routes.get('/departamento/', DepartamentoController.index);
