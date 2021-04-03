@@ -11,7 +11,7 @@ class Recarga extends Model {
     }
     static associate(models){
       this.belongsTo(models.User, { foreignKey: 'id_cartao', as: 'CrdRec'});
-      this.belongsTo(models.Admin, { foreignKey: 'id_admin', as: 'AdmRec'});
+      // this.belongsTo(models.Admin, { foreignKey: 'id_admin', as: 'AdmRec'});
     }
 }
 
