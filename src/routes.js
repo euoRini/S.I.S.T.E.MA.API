@@ -11,6 +11,7 @@ const PagamentoController = require ('./controllers/PagamentoController');
 const AcessoController = require ('./controllers/AcessoController');
 const ProdutoController = require ('./controllers/ProdutoController');
 const DepartamentoController = require('./controllers/DepartamentoController');
+const EspecialController = require('./controllers/EspecialController');
 
 ////////////////////////////////////////////////////////////////
 
@@ -88,5 +89,11 @@ routes.get('/produtos/f/:nome', ProdutoController.findByName);
 routes.get('/produtos', ProdutoController.index);
 routes.get('/produtos/:id_venda/', ProdutoController.produtosVenda);
 routes.post('/produtos', ProdutoController.store);
+
 ////////////////////////////////////////////////////////////////
+
+routes.post('/report/:search',EspecialController.report);
+
+////////////////////////////////////////////////////////////////
+
 module.exports = routes;
