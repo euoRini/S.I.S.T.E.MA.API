@@ -15,27 +15,27 @@ module.exports = {
     const { data } = req.body;
 
     switch (search){
-        case 001:
+        case '001':
 
             return res.status(200).json('Teste 01');
 
-        case 002:
+        case '002':
 
             return res.status(200).json('Teste 02');
 
-        case 003:
+        case '003':
 
             return res.status(200).json('Teste 03');
 
-        case 004:
+        case '004':
 
             return res.status(200).json('Teste 04');
 
-        case 005:
+        case '005':
 
             return res.status(200).json('Teste 05');
 
-        case 006:
+        case '006':
             
             return res.status(200).json('Teste 06');
 
