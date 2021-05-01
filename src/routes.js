@@ -52,7 +52,7 @@ routes.delete('/vendedores/e/:email', VendedorController.deleteByEmail);
 routes.get('/vendedores/f/:matricula', VendedorController.findByMat);
 routes.get('/vendedores', VendedorController.index);
 routes.post('/vendedores', VendedorController.store);
-routes.put('/vendedores/', VendedorController.update);
+routes.put('/vendedores', VendedorController.update);
 ////////////////////////////////////////////////////////////////
 
 routes.get('/departamento/', DepartamentoController.index);
