@@ -50,9 +50,10 @@ module.exports = {
 
   async update(req,res)
   {
+    const {matricula} = req.params;
     const crpsenha = req.body.crpsenha;
     const senha = await bcrypt.hash(crpsenha, 10);
-    const vendedor = await Vendedor.update({ nome : req.body.nome, matricula: req.body.matricula, email: req.body.email, senha:senha},{where:{matricula:req.body.matricula}});
+    const vendedor = await Vendedor.update({ nome : req.body.nome, matricula: req.body.matricula, email: req.body.email, senha:senha},{where:{matricula:matricula}});
     return res.status(200).json(vendedor);
   },
 
