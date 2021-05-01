@@ -53,6 +53,7 @@ module.exports = {
     const {matricula} = req.params;
     const user = await User.update({
       nome : req.body.nome,
+      matricula : req.body.matricula,
       email: req.body.email
     },{ 
       where:{matricula:matricula}

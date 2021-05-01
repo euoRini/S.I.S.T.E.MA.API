@@ -45,7 +45,7 @@ module.exports = {
     const { matricula, nome, email, id_depto, crpsenha } = req.body
     const senha = await bcrypt.hash(crpsenha, 10);
     const vendedor = await Vendedor.create({ matricula, id_depto, nome, email, senha });
-    return res.status(200).json('Vendedor cadastrado com sucesso!');
+    if(vendedor) return res.status(200).json('Vendedor cadastrado com sucesso!');
   },
 
   async update(req,res)
