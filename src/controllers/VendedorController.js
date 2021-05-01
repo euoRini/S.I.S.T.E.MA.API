@@ -56,7 +56,7 @@ module.exports = {
     const b = req.body.nome;
     const c = req.body.email;
     const senha = await bcrypt.hash(crpsenha, 10);
-    const vendedor = await User.update({ matricula: a, nome : b, email: c, senha:senha},{where:{matricula:matricula}});
+    const vendedor = await Vendedor.update({ matricula: a, nome : b, email: c, senha:senha},{where:{matricula:matricula}});
     return res.status(200).json(vendedor);
   },
 
