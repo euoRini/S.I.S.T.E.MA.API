@@ -14,8 +14,8 @@ module.exports = {
       var nome_admin = admin.nome
       var id_admin = admin.id;
     }else{
-      var nome_admin = "";
-      var id_admin = "";
+      var nome_admin = null;
+      var id_admin = null;
     }
     
     const acesso = await Acesso.findByPk( id_acesso );
