@@ -8,14 +8,14 @@ module.exports = {
   {
     const { id_acesso } = req.params; 
     const { login } = req.body;
-    if (login != ""){
+    if (!login){
       const admin = await Admins.findOne({where:{login:login}});
       if ( !admin ) return res.status( 400 ).send( 'Administrador não encontrado.' );
-      const nome_admin = admin.nome
-      const id_admin = admin.id;
+      var nome_admin = admin.nome
+      var id_admin = admin.id;
     }else{
-      const nome_admin = null;
-      const id_admin = null;
+      var nome_admin = "";
+      var id_admin = "";
     }
     
     const acesso = await Acesso.findByPk( id_acesso );
