@@ -8,7 +8,7 @@ module.exports = {
   {
     const { id_acesso } = req.params; 
     const { login } = req.body;
-    if (!login){
+    if (login != "nothing"){
       const admin = await Admins.findOne({where:{login:login}});
       if ( !admin ) return res.status( 400 ).send( 'Administrador não encontrado.' );
       var nome_admin = admin.nome
