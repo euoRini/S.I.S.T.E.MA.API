@@ -45,11 +45,7 @@ module.exports = {
         total = total + validos[i].valor_recarga;
       }
     }
-    if(total != 0{
       return res.status(200).json(total);
-    } else {
-      return res.status(001).json(dataA + dataC);
-    }
   },
 
   async update(req,res)
