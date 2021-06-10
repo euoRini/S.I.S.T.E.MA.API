@@ -10,7 +10,7 @@ class Venda extends Model {
     }
     static associate(models){
         this.belongsTo(models.Vendedor, { foreignKey: 'id_vendedor', as: 'vendedor'});
-        this.hasMany(models.Produto, { foreignKey:'id_venda', through: 'conter', as: 'produtos'})
+        this.belongsToMany(models.Produto, { foreignKey:'id_venda', through: 'conter', as: 'produtos'})
     }
 }
 
