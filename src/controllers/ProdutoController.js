@@ -1,20 +1,26 @@
 const Venda = require('../models/Venda')
 const Produto = require('../models/Produto');
+const Conter = require('../models/Conter');
 
 module.exports = {
   async addProdutosVenda(req, res){
+    function conterProds( id_venda ){
+      const id_produto = item.id
+      const prod = await Conter.create({
+        id_venda,
+        id_produto
+      })
+      if(prod) console.log(prod)
+    }
+    
     const {id_venda} = req.params;
     const { produtoX } = req.body
-    const venda = await Venda.findByPk(id_venda);
-    if(!venda) return res.status(400).json('Venda não encontrada');
-    produtoX.forEach({
-      
-    })
-    const prod = awaits Produto.findByPk(produtoX.id)
-    
 
-    await venda.addProduto(produto);
-    return res.status(200).json(produto);
+    const venda = await Venda.findByPk(id_venda);
+
+    if(!venda) return res.status(400).json('Venda não encontrada');
+    produtoX.forEach(conterProds(venda.id));
+
   },
 
   async deleteByName(req,res)
