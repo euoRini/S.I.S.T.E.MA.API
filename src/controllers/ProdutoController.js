@@ -17,12 +17,13 @@ module.exports = {
       })
       if(prod) console.log(prod)
     }
-    
 
-    const venda = await Venda.findByPk(id_venda);
-
-    if(!venda) return res.status(400).json('Venda não encontrada');
-    if(produtoX!=undefined) produtoX.forEach(conterProds(venda.id, item));
+    if(produtoX!=undefined) produtoX.forEach(()=>{
+        // conterProds(venda.id, item)
+        console.log(item)
+        console.log(id_venda)
+      }
+    );
     else console.log('erro #00333###')
 
   },
