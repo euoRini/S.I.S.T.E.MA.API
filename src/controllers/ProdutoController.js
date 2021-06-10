@@ -18,11 +18,13 @@ module.exports = {
       if(prod) console.log(prod)
     }
 
-    if(produtoX!=undefined) produtoX.forEach(()=>{
-        // conterProds(venda.id, item)
+    if(produtoX!=undefined) 
+      produtoX.forEach( function (item){
         console.log(item)
         console.log(id_venda)
       }
+        // conterProds(venda.id, item)
+        
     );
     else console.log('erro #00333###')
 
