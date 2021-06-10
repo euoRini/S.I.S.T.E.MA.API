@@ -6,8 +6,9 @@ module.exports = {
   async addProdutosVenda(req, res){
     
     const {id_venda} = req.params;
-    const { produtoX } = req.body
-    console.log(produtoX)
+    const { produtoX } = req.body;
+    console.log('==============================\n\n\n\n\n\n')
+    console.log(produtoX);
     
     async function conterProds( id_venda, item ){
       const id_produto = item.id
@@ -15,18 +16,25 @@ module.exports = {
         id_venda,
         id_produto
       })
-      if(prod) console.log(prod)
-    }
-
-    if(produtoX!=undefined) 
-      produtoX.forEach( function (item){
-        conterProds(id_venda, item)
+      if(prod){ 
+        console.log('==============================\n\n\n\n\n\n')
+        console.log(prod);
+        console.log('==============================\n\n\n\n\n\n')
       }
-        
-    );
-    else console.log('erro #00333###')
 
+    }
+    produtoX.forEach( function (item){
+      console.log('==============================\n\n\n\n\n\n')
+      console.log(id_venda)
+      console.log(item)
+      console.log('==============================\n\n\n\n\n\n')
+
+      conterProds(id_venda, item);
+    })
+      
   },
+
+  
 
   async deleteByName(req,res)
   {
