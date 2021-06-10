@@ -13,7 +13,8 @@ class Produto extends Model {
     })
 }
     static associate(models){
-        this.belongsToMany(models.Venda, { foreignKey:'id_produto', through: 'conter', as: 'vendas'})
+        this.HasMany(models.Conter, { foreignKey:'id_produto', as: 'ContProd'})
+        
     }
 }
 

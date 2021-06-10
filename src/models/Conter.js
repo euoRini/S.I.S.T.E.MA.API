@@ -8,8 +8,8 @@ class Conter extends Model {
     })
     }
     static associate(models){
-        this.hasOne(models.Produto, { foreignKey:'id_produto', through: 'conter', as: 'produtos'})
-        this.hasOne(models.Venda, { foreignKey:'id_venda', through: 'conter', as: 'vendas'})
+        this.belongsTo(models.Produto, { foreignKey:'id_produto', as: 'produtos'})
+        this.belongsTo(models.Venda, { foreignKey:'id_venda', as: 'vendas'})
     }
 }
 
