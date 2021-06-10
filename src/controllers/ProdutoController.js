@@ -7,13 +7,11 @@ module.exports = {
     const { produtoX } = req.body
     const venda = await Venda.findByPk(id_venda);
     if(!venda) return res.status(400).json('Venda não encontrada');
+    produtoX.forEach({
+      
+    })
+    const prod = awaits Produto.findByPk(produtoX.id)
     
-    const [ produto ] = await Produto.findOrCreate({
-      where:{ produtoX.nome },
-      preco,
-      estoque,
-      categoria
-    });
 
     await venda.addProduto(produto);
     return res.status(200).json(produto);
