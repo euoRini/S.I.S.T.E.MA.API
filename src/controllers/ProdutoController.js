@@ -27,6 +27,7 @@ module.exports = {
       }
 
     }
+    
     produtoX.forEach((item)=>{
       conterProds(id_venda, item);
     })
