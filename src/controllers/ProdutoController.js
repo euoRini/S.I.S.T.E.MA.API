@@ -8,7 +8,8 @@ module.exports = {
     const {id_venda} = req.params;
     const { produtoX } = req.body
     console.log(produtoX)
-    async function conterProds( id_venda ){
+    
+    async function conterProds( id_venda, item ){
       const id_produto = item.id
       const prod = await Conter.create({
         id_venda,
@@ -21,7 +22,7 @@ module.exports = {
     const venda = await Venda.findByPk(id_venda);
 
     if(!venda) return res.status(400).json('Venda não encontrada');
-    if(produtoX!=undefined) produtoX.forEach(conterProds(venda.id));
+    if(produtoX!=undefined) produtoX.forEach(conterProds(venda.id, item));
     else console.log('erro #00333###')
 
   },
