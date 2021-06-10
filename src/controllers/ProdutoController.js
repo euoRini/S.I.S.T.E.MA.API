@@ -4,7 +4,7 @@ const Conter = require('../models/Conter');
 
 module.exports = {
   async addProdutosVenda(req, res){
-    function conterProds( id_venda ){
+    async function conterProds( id_venda ){
       const id_produto = item.id
       const prod = await Conter.create({
         id_venda,
