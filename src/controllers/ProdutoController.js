@@ -9,10 +9,9 @@ module.exports = {
     const { produtoX } = req.body;
     
     async function conterProds( id_venda, item ){
-      console.log('\n\nteste#1\n\n')
       const id_produto = item.id
       console.log('\n\nteste#2\n\n')
-
+      console.log(id_venda+' =>'+id_produto)
       const prod = await Conter.create({
         id_venda,
         id_produto
@@ -27,7 +26,7 @@ module.exports = {
       }
 
     }
-    
+
     produtoX.forEach((item)=>{
       conterProds(id_venda, item);
     })
