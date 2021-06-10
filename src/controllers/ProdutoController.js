@@ -12,10 +12,12 @@ module.exports = {
       console.log('\n\nteste#1\n\n')
       const id_produto = item.id
       console.log('\n\nteste#2\n\n')
+
       const prod = await Conter.create({
         id_venda,
         id_produto
       })
+      
       console.log('\n\nteste#3\n\n')
       
       if(prod){ 
