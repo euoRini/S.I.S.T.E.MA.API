@@ -9,6 +9,7 @@ module.exports = {
     const { produtoX } = req.body;
     console.log('==============================\n\n\n\n\n\n')
     console.log(produtoX);
+    console.log('==============================\n\n\n\n\n\n')
     
     async function conterProds( id_venda, item ){
       const id_produto = item.id
