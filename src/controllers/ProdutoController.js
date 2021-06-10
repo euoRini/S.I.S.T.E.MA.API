@@ -4,11 +4,12 @@ const Produto = require('../models/Produto');
 module.exports = {
   async addProdutosVenda(req, res){
     const {id_venda} = req.params;
-    const { nome, preco, estoque, categoria } = req.body
+    const { produtoX } = req.body
     const venda = await Venda.findByPk(id_venda);
     if(!venda) return res.status(400).json('Venda não encontrada');
+    
     const [ produto ] = await Produto.findOrCreate({
-      where:{ nome },
+      where:{ produtoX.nome },
       preco,
       estoque,
       categoria
