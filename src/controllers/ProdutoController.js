@@ -4,6 +4,10 @@ const Conter = require('../models/Conter');
 
 module.exports = {
   async addProdutosVenda(req, res){
+    
+    const {id_venda} = req.params;
+    const { produtoX } = req.body
+    
     async function conterProds( id_venda ){
       const id_produto = item.id
       const prod = await Conter.create({
@@ -13,8 +17,6 @@ module.exports = {
       if(prod) console.log(prod)
     }
     
-    const {id_venda} = req.params;
-    const { produtoX } = req.body
 
     const venda = await Venda.findByPk(id_venda);
 
