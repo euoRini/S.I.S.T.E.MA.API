@@ -7,16 +7,17 @@ module.exports = {
     
     const {id_venda} = req.params;
     const { produtoX } = req.body;
-    console.log('==============================\n\n\n\n\n\n')
-    console.log(produtoX);
-    console.log('==============================\n\n\n\n\n\n')
     
     async function conterProds( id_venda, item ){
+      console.log('\n\nteste#1\n\n')
       const id_produto = item.id
+      console.log('\n\nteste#2\n\n')
       const prod = await Conter.create({
         id_venda,
         id_produto
       })
+      console.log('\n\nteste#3\n\n')
+      
       if(prod){ 
         console.log('==============================\n\n\n\n\n\n')
         console.log(prod);
@@ -24,12 +25,7 @@ module.exports = {
       }
 
     }
-    produtoX.forEach( function (item){
-      console.log('==============================\n\n\n\n\n\n')
-      console.log(id_venda)
-      console.log(item)
-      console.log('==============================\n\n\n\n\n\n')
-
+    produtoX.forEach((item)=>{
       conterProds(id_venda, item);
     })
       
